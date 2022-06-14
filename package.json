@@ -6,9 +6,14 @@
     "start": "next start"
   },
   "dependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mui/material": "^5.8.4",
+    "firebase": "^9.8.3",
     "next": "latest",
     "react": "18.1.0",
-    "react-dom": "18.1.0"
+    "react-dom": "18.1.0",
+    "react-icons": "^4.4.0"
   },
   "devDependencies": {
     "@types/node": "17.0.35",
