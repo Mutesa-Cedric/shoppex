@@ -9,7 +9,11 @@ module.exports = {
       fontFamily:{
         quicksand: 'Quicksand, sans-serif',
       },
-    },
+      colors:{
+        'primary': '#F9A109',
+        "secondary":"#FFF0DE"
+      }
+    }
   },
   plugins: [],
 }
