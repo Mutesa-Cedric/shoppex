@@ -12,4 +12,7 @@
     font-display: swap;
     font-style:normal;
    }
+   body{
+      @apply font-quicksand
+   }
 }
