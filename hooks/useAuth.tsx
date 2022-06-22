@@ -5,18 +5,20 @@ import {
     signInWithEmailAndPassword,
     signOut,
     User,
-    GoogleAuthProvider,
+    signInWithPopup,
 } from 'firebase/auth'
-
+import { async } from '@firebase/util'
 import { useRouter } from 'next/router'
 import { createContext, useContext, useEffect, useMemo, useState } from 'react'
-import { auth } from '../firebase'
+import { auth, provider } from '../firebase'
 
 interface IAuth {
     user: User | null
     signUp: (email: string, password: string) => Promise<void>
     signIn: (email: string, password: string) => Promise<void>
     logout: () => Promise<void>
+    signUpWithGoogle:()=>Promise<void>
+    loginWithGoogle:()=>Promise<void>
     error: string | null
     loading: boolean
 }
@@ -29,6 +31,8 @@ const AuthContext = createContext<IAuth>({
     signUp: async () => { },
     signIn: async () => { },
     logout: async () => { },
+    signUpWithGoogle: async () => { },
+    loginWithGoogle: async () => { },
     error: null,
     loading: false
 })
@@ -64,7 +68,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     )
     // User is authenticated
 
-    
+
     const router = useRouter();
     // signup function
     const signUp = async (email: string, password: string) => {
@@ -77,6 +81,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         await createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 setUser(userCredential.user);
+                console.log(user);
                 router.push('/');
                 setLoading(false)
             }).catch((err) => {
@@ -94,6 +99,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
             .then((userCredential) => {
                 setLoading(false)
                 setUser(userCredential.user);
+                console.log(user);
+                
                 router.push('/');
             }).catch((err) => {
                 alert(err.message);
@@ -102,12 +109,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
             })
     }
     //signin function
-
-    //signup with email
-    
-
-    //signup with email
-
 
     //logout function
 
@@ -126,9 +127,48 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
     //logout function
 
+    // signup with google
+    const signUpWithGoogle = async () => {
+        setLoading(true);
+        await signInWithPopup(auth, provider)
+            .then((userCredential) => {
+                setUser(userCredential.user);
+                router.push('/');
+            }
+            ).catch((err) => {
+                alert(err.message);
+            }
+            ).finally(() => {
+                setLoading(false);
+            }
+            )
+    }
+    // signup with google
+
+    // login with google
+
+    const loginWithGoogle = async () => {
+        setLoading(true);
+        await signInWithPopup(auth, provider)
+            .then((userCredential) => {
+                setUser(userCredential.user);
+                router.push('/');
+            }
+            ).catch((err) => {
+                alert(err.message);
+            }
+            ).finally(() => {
+                setLoading(false);
+            }
+            )
+    }
+
+    // login with google
+
+
     //useMemo to increase performance
     const memoedValue = useMemo(() => ({
-        user, signUp, signIn, loading, logout, error
+        user, signUp, signIn, loading, logout, error,loginWithGoogle,signUpWithGoogle
     }), [user, loading, error])
     //useMemo to increase performance
 

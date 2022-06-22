@@ -17,22 +17,31 @@ type Inputs = {
 };
 
 
-function Form({ currentPage, toLogin, toSignup }: Props) {
+function AuthForm({ currentPage, toLogin, toSignup }: Props) {
     const [passwordVisible, setPasswordVisible] = useState(false);
     const togglePasswordVisibility = () => {
         setPasswordVisible(!passwordVisible);
     }
 
     const [login, setLogin] = useState(false);
-    const {signIn,signUp}=useAuth();
+    const { signIn, signUp, signUpWithGoogle, loginWithGoogle } = useAuth();
     const { register, handleSubmit, watch, formState: { errors } } = useForm<Inputs>();
     const onSubmit: SubmitHandler<Inputs> = async data => {
         if (login) {
-          await signIn(data.email,data.password);
+            await signIn(data.email, data.password);
         } else {
-          await signUp(data.email,data.password);
+            await signUp(data.email, data.password);
         }
-      }; 
+    };
+    const googleSignup=()=>{
+        console.log("signing up!");
+        signUpWithGoogle();
+    }
+
+    const googleLogin=()=>{
+        console.log("logging in!");
+        loginWithGoogle();
+    }
 
     return (
         <div className='w-3/6 px-[140px] flex items-center justify-center'>
@@ -66,10 +75,20 @@ function Form({ currentPage, toLogin, toSignup }: Props) {
                         <p className='text-red-500 text-sm my-2 px-auto'>password must be at least 4 characters long</p>}
                 </div>
                 <button className='px-12 py-3 bg-primary text-white text-lg font-bold rounded-lg mt-4'>{currentPage === "signup" ? "Sign Up" : "Log In"}</button>
-                <button className="flex items-center bg-secondary text-lg font-bold my-4 py-2 justify-center rounded-lg">
-                    <FcGoogle className='w-8 mr-2 h-8' />
-                    <span>{currentPage === "signup" ? "Sign Up with Google" : "Login with Google"}</span>
-                </button>
+                {
+                    currentPage === "signup" ?
+                        <button type="button" className="flex items-center bg-secondary text-lg font-bold my-4 py-2 justify-center rounded-lg"
+                        onClick={googleSignup}>
+                            <FcGoogle className='w-8 mr-2 h-8' />
+                            <span>Sign Up with Google</span>
+                        </button> :
+                        <button type="button" className="flex items-center bg-secondary text-lg font-bold my-4 py-2 justify-center rounded-lg"
+                        onClick={googleLogin}>
+                            <FcGoogle className='w-8 mr-2 h-8' />
+                            <span>Login with Google</span>
+                        </button>
+                }
+
                 <p className="pl-2 py-3">{currentPage === "signup" ? "have an account ?" : "don't have an account ?"}
                     {currentPage === "signup" ?
                         <span className="text-primary  font-bold pl-2  cursor-pointer" onClick={toLogin}>login</span>
@@ -80,4 +99,4 @@ function Form({ currentPage, toLogin, toSignup }: Props) {
     )
 }
 
-export default Form
+export default AuthForm
