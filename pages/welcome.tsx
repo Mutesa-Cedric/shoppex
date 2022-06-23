@@ -4,7 +4,7 @@ import AuthForm from '../components/AuthForm';
 import Image from 'next/image';
 import Head from 'next/head'
 import useAuth from '../hooks/useAuth';
-const Welcome: NextPage = () => {
+const Welcome = () => {
     const [currentPage, setcurrentPage] = useState('signup');
     const {error}=useAuth();
     
@@ -30,4 +30,6 @@ const Welcome: NextPage = () => {
         </div>
     )
 }
+
+Welcome.authPage=true;
 export default Welcome
