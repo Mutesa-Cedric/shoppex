@@ -24,7 +24,7 @@ function AuthForm({ currentPage, toLogin, toSignup }: Props) {
     }
 
     const [login, setLogin] = useState(false);
-    const { signIn, signUp, signUpWithGoogle, loginWithGoogle } = useAuth();
+    const { signIn, signUp, signUpWithGoogle, loginWithGoogle ,loading } = useAuth();
     const { register, handleSubmit, watch, formState: { errors } } = useForm<Inputs>();
     const onSubmit: SubmitHandler<Inputs> = async data => {
         if (login) {

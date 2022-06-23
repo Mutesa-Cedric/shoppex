@@ -9,14 +9,15 @@ import useAuth from '../hooks/useAuth'
 
 const Home: NextPage = () => {
 
-  const { user, logout } = useAuth();
+  const { user, logout, initialLoading } = useAuth();
   return (
-    <div className="bg-[#FAFAFE]">
+    <div className="bg-[#FAFAFE] min-h-screen flex items-center justify-center">
       <Head>
         <title>Shoppex - Home</title>
         <link rel="icon" href="/logo.svg" />
       </Head>
-      <main className="w-full h-screen flex justify-between">
+
+      <main className="w-full h-screen flex justify-between" style={{ display: `${initialLoading ? "none" : ""}` }}>
         <SideNav />
         <div className=' lg:px-16 md:px-8 px-4 border-gray-600 md:w-4/6 w-[90%] pt-8'>
           <div className="flex md:flex-row flex-col  items-center justify-between ">
@@ -29,19 +30,24 @@ const Home: NextPage = () => {
               <input type="text" placeholder='search item'
                 className='bg-white py-3 rounded-xl pl-12 placeholder:capitalize w-full shadow-sm focus:outline-none text-gray-500 ' />
               <div className="absolute top-4 left-4">
-                <AiOutlineSearch size={20}/>
+                <AiOutlineSearch size={20} />
               </div>
             </div>
-            
+
           </div>
           <div className="mt-12">
-              <Category category='Fruit and vegetables'/>
-              <Category category='Meat and Fish'/>
-              <Category category='Beverages'/>
-            </div>
+            <Category category='Fruit and vegetables' />
+            <Category category='Meat and Fish' />
+            <Category category='Beverages' />
+          </div>
         </div>
         <ItemSideBar />
       </main>
+      {
+        initialLoading &&
+        <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+      }
+
     </div>
   )
 }

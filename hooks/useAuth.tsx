@@ -17,10 +17,11 @@ interface IAuth {
     signUp: (email: string, password: string) => Promise<void>
     signIn: (email: string, password: string) => Promise<void>
     logout: () => Promise<void>
-    signUpWithGoogle:()=>Promise<void>
-    loginWithGoogle:()=>Promise<void>
+    signUpWithGoogle: () => Promise<void>
+    loginWithGoogle: () => Promise<void>
     error: string | null
     loading: boolean
+    initialLoading: boolean
 }
 
 
@@ -34,7 +35,8 @@ const AuthContext = createContext<IAuth>({
     signUpWithGoogle: async () => { },
     loginWithGoogle: async () => { },
     error: null,
-    loading: false
+    loading: false,
+    initialLoading: true
 })
 interface AuthProviderProps {
     children: React.ReactNode
@@ -55,14 +57,16 @@ export function AuthProvider({ children }: AuthProviderProps) {
                     // Logged in...
                     setUser(user)
                     setLoading(false)
+                    setInitialLoading(false)
                 } else {
                     // Not logged in...
                     setUser(null)
                     setLoading(true)
                     router.push('/welcome')
+                    setTimeout(() => {
+                        setInitialLoading(false)
+                    }, 700)
                 }
-
-                setInitialLoading(false)
             }),
         [auth]
     )
@@ -99,11 +103,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
             .then((userCredential) => {
                 setLoading(false)
                 setUser(userCredential.user);
-                console.log(user);
-                
                 router.push('/');
             }).catch((err) => {
-                alert(err.message);
+                setError(err.message);
             }).finally(() => {
                 setLoading(false);
             })
@@ -119,7 +121,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
             setUser(null);
             router.push('/');
         }).catch((err) => {
-            alert(err.message);
+            setError(err.message);
         }).finally(() => {
             setLoading(false);
         })
@@ -136,7 +138,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
                 router.push('/');
             }
             ).catch((err) => {
-                alert(err.message);
+                setError(err.message);
             }
             ).finally(() => {
                 setLoading(false);
@@ -155,7 +157,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
                 router.push('/');
             }
             ).catch((err) => {
-                alert(err.message);
+                setError(err.message);
             }
             ).finally(() => {
                 setLoading(false);
@@ -168,8 +170,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
     //useMemo to increase performance
     const memoedValue = useMemo(() => ({
-        user, signUp, signIn, loading, logout, error,loginWithGoogle,signUpWithGoogle
-    }), [user, loading, error])
+        user, signUp, signIn, loading, logout, error, loginWithGoogle, signUpWithGoogle, initialLoading
+    }), [user, loading, error, initialLoading])
     //useMemo to increase performance
 
     //returning context to share info accross page
