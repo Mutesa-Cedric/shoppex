@@ -6,6 +6,7 @@ import Head from 'next/head'
 import useAuth from '../hooks/useAuth';
 const Welcome: NextPage = () => {
     const [currentPage, setcurrentPage] = useState('signup');
+    const {error}=useAuth();
     
     const toLogin = () => {
         setcurrentPage('login');
@@ -29,5 +30,4 @@ const Welcome: NextPage = () => {
         </div>
     )
 }
-
 export default Welcome
