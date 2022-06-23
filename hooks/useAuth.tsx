@@ -86,7 +86,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
             .then((userCredential) => {
                 setUser(userCredential.user);
                 console.log(user);
-                router.push('/');
+                router.push('/items');
                 setLoading(false)
             }).catch((err) => {
                 alert(err.message);
@@ -103,7 +103,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
             .then((userCredential) => {
                 setLoading(false)
                 setUser(userCredential.user);
-                router.push('/');
+                router.push('/items');
             }).catch((err) => {
                 setError(err.message);
             }).finally(() => {
@@ -119,7 +119,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         await signOut(auth).then(() => {
             // setLoading(false);
             setUser(null);
-            router.push('/');
+            router.push('/items');
         }).catch((err) => {
             setError(err.message);
         }).finally(() => {
