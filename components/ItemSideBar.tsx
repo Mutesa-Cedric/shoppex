@@ -3,7 +3,7 @@ import React from 'react'
 import { MdModeEditOutline } from "react-icons/md"
 function ItemSideBar() {
   return (
-    <div className="w-[30%] h-full font-quicksand  shadow-sm lg:flex hidden flex-col">
+    <div className="w-max h-full font-quicksand  shadow-sm lg:flex hidden flex-col">
       <div className='bg-secondary w-full h-5/6 pl-10 pt-6 pr-6'>
         <div className='bg-[hsl(340,28%,39%)] relative rounded-3xl w-full h-32 flex items-center justify-around  mb-4'>
           <div className='absolute bottom-[-12px] left-3'>
