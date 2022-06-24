@@ -7,7 +7,7 @@ function Statistics() {
     const [currentPage,setCurrentPage]=useRecoilState(currentPageState);
     setCurrentPage('statistics');
     return (
-        <div>
+        <div className="bg-[#FAFAFE] border border-red-500 md:overflow-y-hidden w-[72%] h-full flex items-center justify-between">
             <Head>
                 <title>Shoppex - your statistics</title>
                 <link rel="icon" href="/logo.svg" />
