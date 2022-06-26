@@ -1,4 +1,4 @@
-export interface HistoryItem{
+export interface Item{
     name:string
     date:string
     cookies:{name:string,qty:number}[]
