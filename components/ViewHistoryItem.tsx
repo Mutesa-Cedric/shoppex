@@ -11,18 +11,18 @@ interface ItemProps {
 
 let CookieItem = ({ name, qty }: ItemProps) => {
   return (
-    <div className='flex bg-white items-center space-x-6 shadow-sm rounded-xl py-4 px-4 '>
-      <p className='text-center text-xl font-bold'>{name}</p>
-      <p className='text-center text-[#F9A109]'>{qty} pcs</p>
+    <div className='flex bg-white items-center space-x-20 shadow-sm rounded-xl py-3 px-4 '>
+      <p className='text-center text-lg font-bold'>{name}</p>
+      <p className='text-center text-[13px] font-bold text-[#F9A109]'>{qty} pcs</p>
     </div>
   )
 }
 
 let BeverageItem = ({ name, qty }: ItemProps) => {
   return (
-    <div className='flex bg-white items-center space-x-6 shadow-sm rounded-xl py-4 px-4 '>
-      <p className='text-center text-xl font-bold'>{name}</p>
-      <p className='text-center text-xl'>{qty}</p>
+    <div className='flex bg-white items-center space-x-20 shadow-sm rounded-xl py-3 px-4 '>
+      <p className='text-center text-lg font-bold'>{name}</p>
+      <p className='text-center text-[13px] font-bold text-[#F9A109]'>{qty} pcs</p>
     </div>
   )
 }
@@ -31,28 +31,31 @@ let BeverageItem = ({ name, qty }: ItemProps) => {
 function ViewHistoryItem({ name, date, cookies, beverages }: Item) {
   const [showHistoryItem, setShowHistoryItem] = useRecoilState(ShowHistoryItem)
   return (
-    <div>
-      <div className='flex text-[#F9A109] cursor-pointer'
+    <div className='w-full px-16 pt-12'>
+      <div className='flex w-max text-[#F9A109] cursor-pointer items-center font-extrabold space-x-2 transition-all hover:translate-x-1.5 duration-400 mb-4'
         onClick={() => setShowHistoryItem(false)}>
         <BiArrowBack />
         <span>Back</span>
       </div>
-      <p>{date}</p>
-      <div className="flex flex-col">
-        <h1 className='font-bold text-xl'>Cookies</h1>
-        <div className="flex space-x-8">
-          {cookies.map(cookie => {
-            return <CookieItem name={cookie.name} qty={cookie.qty} />
-          })}
+      <p className='text-sm font-medium text-gray-500 pb-4'>{date}</p>
+      <div>
+        <div className="flex flex-col mb-8">
+          <h1 className='font-bold text-lg pb-2 pl-2'>Cookies</h1>
+          <div className="flex space-x-12">
+            {cookies.map(cookie => {
+              return <CookieItem name={cookie.name} qty={cookie.qty} />
+            })}
+          </div>
         </div>
-      </div>
-      <div className="flex flex-col">
-        <h1 className='font-bold text-xl'>Beverages</h1>
-        <div className="flex space-x-8">
-          {beverages.map(beverage => {
-            return <BeverageItem name={beverage.name} qty={beverage.qty} />
-          }
-          )}
+        <div className="flex flex-col">
+          <h1 className='font-bold text-lg pb-2 pl-2'>Beverages</h1>
+          <div className="flex space-x-8">
+            {beverages.map(beverage => {
+              return <BeverageItem name={beverage.name} qty={beverage.qty} />
+            }
+            )}
+          </div>
+
         </div>
       </div>
     </div>

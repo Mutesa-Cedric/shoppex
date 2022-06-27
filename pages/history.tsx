@@ -16,7 +16,7 @@ function History() {
         <div className="bg-[#FAFAFE] md:overflow-y-hidden w-[72%] h-full flex justify-between">
             <Head>
                 <title>Shoppex - Your History</title>
-                <link rel="icon" href="/logo.svg" />
+                <link rel="icon" href="/images/logo.svg" />
             </Head>
             {showHistoryItem ?
                 <ViewHistoryItem {...testItem} />
