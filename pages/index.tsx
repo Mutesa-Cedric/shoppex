@@ -16,7 +16,7 @@ const Home= () => {
     <div className="bg-[#FAFAFE] md:overflow-y-hidden w-[72%] h-full flex items-center justify-between">
             <Head>
                 <title>Shoppex - your items</title>
-                <link rel="icon" href="/logo.svg" />
+                <link rel="icon" href="/images/logo.svg" />
             </Head>
             <div className=' lg:px-16 md:px-8 px-4 w-full pt-8'>
                 <div className="flex md:flex-row flex-col  items-center justify-between ">
