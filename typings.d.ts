@@ -4,3 +4,7 @@ export interface Item{
     cookies:{name:string,qty:number}[]
     beverages:{name:string,qty:number}[]
 }
+export interface TopItem{
+    name: string;
+    percentage:number
+}
