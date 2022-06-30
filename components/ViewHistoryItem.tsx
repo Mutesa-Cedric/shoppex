@@ -1,5 +1,5 @@
 import React from 'react'
-import { BiArrowBack } from 'react-icons/bi'
+import { BiArrowBack, BiCalendar } from 'react-icons/bi'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { ShowHistoryItem } from '../atoms/HistoryItemState'
 import { Item } from '../typings'
@@ -37,10 +37,11 @@ function ViewHistoryItem({ name, date, cookies, beverages }: Item) {
         <BiArrowBack />
         <span>Back</span>
       </div>
-      <p className='text-sm font-medium text-gray-500 pb-4'>{date}</p>
+      <p className='text-3xl font-extrabold py-3'>{name}</p>
+      <p className='text-[13px] font-medium text-[#C1C1C4] pb-8 flex items-center'><BiCalendar className='mr-2' />{date}</p>
       <div>
         <div className="flex flex-col mb-8">
-          <h1 className='font-bold text-lg pb-2 pl-2'>Cookies</h1>
+          <h1 className='font-bold text-[18px] pb-2 pl-2'>Cookies</h1>
           <div className="flex space-x-12">
             {cookies.map(cookie => {
               return <CookieItem name={cookie.name} qty={cookie.qty} />
@@ -48,7 +49,7 @@ function ViewHistoryItem({ name, date, cookies, beverages }: Item) {
           </div>
         </div>
         <div className="flex flex-col">
-          <h1 className='font-bold text-lg pb-2 pl-2'>Beverages</h1>
+          <h1 className='font-bold text-[18px] pb-2 pl-2'>Beverages</h1>
           <div className="flex space-x-8">
             {beverages.map(beverage => {
               return <BeverageItem name={beverage.name} qty={beverage.qty} />
