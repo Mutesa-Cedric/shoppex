@@ -3,15 +3,15 @@ import { TopItem } from "../typings"
 export const topItems:TopItem[]=[
     {
         name:"Banana",
-        percentage:12
+        percentage:22
     },
     {
         name:"Rice",
-        percentage:10
+        percentage:16
     },
     {
         name:"Chicken 1kg",
-        percentage:8
+        percentage:12
     }
 ]
 

@@ -10,7 +10,7 @@ function Statistics() {
     const [currentPage, setCurrentPage] = useRecoilState(currentPageState);
     setCurrentPage('statistics');
     return (
-        <div className="bg-[#FAFAFE]  md:overflow-y-hidden px-28 pt-16 w-[72%] h-full flex items-center justify-between">
+        <div className="bg-[#FAFAFE]  md:overflow-y-hidden px-28 pt-16 pb-20 w-[72%] h-full flex items-center justify-between">
             <Head>
                 <title>Shoppex - your statistics</title>
                 <link rel="icon" href="/images/logo.svg" />
@@ -19,7 +19,7 @@ function Statistics() {
                 <div className='flex justify-between items-center'>
                     <div className='flex flex-col '>
                         <h1 className="text-[24px] font-extrabold leading-[30px] pb-4">Top Items</h1>
-                        <div className="flex flex-col space-y-8 mt-1">
+                        <div className="flex flex-col space-y-6 mt-1">
                             {topItems.map(item=>{
                                 return <TopItem {...item}/>
                             })}
@@ -27,7 +27,7 @@ function Statistics() {
                     </div>
                     <div>
                         <h1 className="text-[24px] font-extrabold leading-[30px] pb-4">Top Categories</h1>
-                        <div className="flex flex-col space-y-8 mt-1">
+                        <div className="flex flex-col space-y-6 mt-1">
                             {
                                 topCategories.map(category=>{
                                     return <TopCategory {...category}/>
@@ -36,8 +36,8 @@ function Statistics() {
                         </div>
                     </div>
                 </div>
-                <div className='flex flex-col justify-between'>
-                    <h1>monthly summary</h1>
+                <div className='flex flex-col justify-center'>
+                    <h1 className='text-xl capitalize font-semibold'>monthly summary</h1>
                     <SummaryChart />
                 </div>
             </div>
