@@ -4,7 +4,7 @@ import { Line } from "react-chartjs-2";
 import 'chart.js/auto';
 import Chart from 'chart.js/auto';
 
-const data = {
+const data   = {
   labels: ["January", "February", "March", "April", "May", "June", "July"],
   datasets: [
     {
