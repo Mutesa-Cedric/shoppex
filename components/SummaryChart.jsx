@@ -17,7 +17,7 @@ const data   = {
       borderDash: [],
       borderDashOffset: 0.0,
       borderJoinStyle: "miter",
-      pointBorderColor: "gray",
+      pointBorderColor: "#F9A109",
       pointBackgroundColor: "#fff",
       pointBorderWidth: 1,
       pointHoverRadius: 4,

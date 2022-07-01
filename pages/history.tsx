@@ -2,7 +2,7 @@ import Head from 'next/head'
 import React, { useState } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { currentPageState } from '../atoms/CurrentPageState';
-import { ShowHistoryItem } from '../atoms/HistoryItemState';
+import { ShowHistoryItem } from '../atoms/ItemState';
 import HistoryItem from '../components/HistoryItem';
 import ViewHistoryItem from '../components/ViewHistoryItem';
 import { testItem } from '../testItem';

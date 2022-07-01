@@ -1,9 +1,11 @@
 import Image from 'next/image'
 import React from 'react'
 import { MdModeEditOutline } from "react-icons/md"
+import { useRecoilState } from 'recoil'
+import { currentSideBar } from '../atoms/CurrentPageState';
 function ItemSideBar() {
-  return (
-    <div className="w-max h-full font-quicksand  shadow-sm lg:flex hidden flex-col">
+  const [activeSideBar, setActiveSideBar] = useRecoilState(currentSideBar); return (
+    <div className="h-full font-quicksand  shadow-sm lg:flex hidden flex-col">
       <div className='bg-secondary w-full h-5/6 pl-10 pt-6 pr-6'>
         <div className='bg-[hsl(340,28%,39%)] relative rounded-3xl w-full h-32 flex items-center justify-around  mb-4'>
           <div className='absolute bottom-[-12px] left-3'>
@@ -11,7 +13,8 @@ function ItemSideBar() {
           </div>
           <div className="flex flex-col items-start ml-32 justify-between text-white space-y-4">
             <span className=" w-5/6 leading-5  font-bold">Didn&apos;t find what you need?</span>
-            <button className='px-8 bg-white text-[#34333A] text-sm leading-[17.4px] font-semibold py-3 rounded-xl'>
+            <button className='px-8 bg-white text-[#34333A] text-sm leading-[17.4px] font-semibold py-3 rounded-xl'
+              onClick={() => setActiveSideBar("addItem")}>
               Add item
             </button>
           </div>
@@ -19,7 +22,7 @@ function ItemSideBar() {
         <div className='h-3/4 px-2 pt-4 w-full'>
           <div className="flex justify-between mb-4">
             <h1 className="font-bold  text-[22px] leading-[30px] text-[#34333A] ">Shopping list</h1>
-            <MdModeEditOutline size={24} />
+            <MdModeEditOutline size={24} className={"cursor-pointer"} />
           </div>
           <div>
             <div>
