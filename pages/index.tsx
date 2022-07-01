@@ -27,7 +27,7 @@ const Home= () => {
                     </div>
                     <div className='relative'>
                         <input type="text" placeholder='search item'
-                            className='bg-white py-3 rounded-xl pl-12 placeholder:capitalize w-full shadow-sm focus:outline-none text-gray-500 ' />
+                            className='bg-white py-3 rounded-xl pl-12 placeholder:capitalize w-full shadow-sm focus:outline-none focus:border-primary focus:border-2 text-gray-500 ' />
                         <div className="absolute top-4 left-4">
                             <AiOutlineSearch size={20} />
                         </div>

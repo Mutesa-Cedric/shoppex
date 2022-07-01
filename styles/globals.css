@@ -89,5 +89,11 @@
          transform: translate(24px, 0);
       }
    }
+   .form-label{
+      @apply text-[14px] font-semibold leading-[18px] capitalize py-3;
+   }
+   .form-input{
+      @apply border-2 w-full bg-inherit  border-[#BDBDBD] rounded-xl py-2 focus:outline-none focus:border-primary px-3 placeholder:text-[#BDBDBD] text-gray-600
+   }
 
 }
