@@ -22,7 +22,7 @@ function ItemSideBar() {
         <div className='h-3/4 px-2 pt-4 w-full'>
           <div className="flex justify-between mb-4">
             <h1 className="font-bold  text-[22px] leading-[30px] text-[#34333A] ">Shopping list</h1>
-            <MdModeEditOutline size={24} />
+            <MdModeEditOutline size={24} className={"cursor-pointer"} />
           </div>
           <div>
             <div>
