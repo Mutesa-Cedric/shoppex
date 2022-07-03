@@ -2,6 +2,7 @@ import Head from 'next/head'
 import React from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { currentPageState } from '../atoms/CurrentPageState';
+import ConfirmModal from '../components/ConfirmModal';
 import SummaryChart from '../components/SummaryChart';
 import TopCategory from '../components/TopCategory';
 import TopItem from '../components/TopItem';
@@ -20,8 +21,8 @@ function Statistics() {
                     <div className='flex flex-col '>
                         <h1 className="text-[24px] font-extrabold leading-[30px] pb-4">Top Items</h1>
                         <div className="flex flex-col space-y-6 mt-1">
-                            {topItems.map(item=>{
-                                return <TopItem {...item}/>
+                            {topItems.map(item => {
+                                return <TopItem {...item} />
                             })}
                         </div>
                     </div>
@@ -29,8 +30,8 @@ function Statistics() {
                         <h1 className="text-[24px] font-extrabold leading-[30px] pb-4">Top Categories</h1>
                         <div className="flex flex-col space-y-6 mt-1">
                             {
-                                topCategories.map(category=>{
-                                    return <TopCategory {...category}/>
+                                topCategories.map(category => {
+                                    return <TopCategory {...category} />
                                 })
                             }
                         </div>
@@ -41,6 +42,7 @@ function Statistics() {
                     <SummaryChart />
                 </div>
             </div>
+            <ConfirmModal/>
         </div>
     )
 }

@@ -6,6 +6,7 @@ import { useRecoilState } from "recoil";
 import { currentPageState } from "../atoms/CurrentPageState";
 import { AiOutlineSearch } from 'react-icons/ai'
 import Category from '../components/Category'
+import ConfirmModal from '../components/ConfirmModal';
 
 const Home= () => {
 
