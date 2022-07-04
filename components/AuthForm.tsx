@@ -31,15 +31,15 @@ function AuthForm({ currentPage, toLogin, toSignup }: Props) {
             await signUp(data.email, data.password);
         }
     };
-    const googleSignup = () => {
-        console.log("signing up!");
-        signUpWithGoogle();
-    }
+    // const googleSignup = () => {
+    //     console.log("signing up!");
+    //     signUpWithGoogle();
+    // }
 
-    const googleLogin = () => {
-        console.log("logging in!");
-        loginWithGoogle();
-    }
+    // const googleLogin = () => {
+    //     console.log("logging in!");
+    //     loginWithGoogle();
+    // }
 
     return (
         <div className='w-3/6 px-[140px] flex items-center justify-center'>
@@ -82,12 +82,12 @@ function AuthForm({ currentPage, toLogin, toSignup }: Props) {
                 {
                     currentPage === "signup" ?
                         <button type="button" className="flex items-center bg-secondary text-lg font-bold my-4 py-2 justify-center rounded-lg"
-                            onClick={googleSignup}>
+                            onClick={signUpWithGoogle}>
                             <FcGoogle className='w-8 mr-2 h-8' />
                             <span>Sign Up with Google</span>
                         </button> :
                         <button type="button" className="flex items-center bg-secondary text-lg font-bold my-4 py-2 justify-center rounded-lg"
-                            onClick={googleLogin}>
+                            onClick={loginWithGoogle}>
                             <FcGoogle className='w-8 mr-2 h-8' />
                             <span>Login with Google</span>
                         </button>
