@@ -31,5 +31,5 @@ const Welcome = () => {
     )
 }
 
-Welcome.authPage=true;
+Welcome.singlePage=true;
 export default Welcome

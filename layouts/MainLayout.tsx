@@ -2,10 +2,10 @@ import React from 'react'
 import { useRecoilValue } from 'recoil';
 import { currentPageState, currentSideBar } from '../atoms/CurrentPageState';
 import useAuth from '../hooks/useAuth';
-import AddItem from './AddItem';
-import ItemPreview from './ItemPreview';
-import ItemSideBar from './ItemSideBar';
-import SideNav from './SideNav'
+import AddItem from '../components/AddItem';
+import ItemPreview from '../components/ItemPreview';
+import ItemSideBar from '../components/ItemSideBar';
+import SideNav from '../components/SideNav'
 interface LayoutProps {
     children: React.ReactNode
 }
