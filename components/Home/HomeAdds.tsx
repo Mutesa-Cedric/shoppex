@@ -1,9 +1,9 @@
 import React from 'react'
 
-function HomeAdds() {
+function HomeAds() {
   return (
     <div>HomeAdds</div>
   )
 }
 
-export default HomeAdds
+export default HomeAds
