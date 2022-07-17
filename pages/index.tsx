@@ -24,13 +24,18 @@ const Home = () => {
                 <title>shoppex -  welcome</title>
                 <link rel="icon" href="/images/logo.svg" />
             </Head>
-            <main className='flex relative flex-col space-y-24 items-center justify-between min-h-screen'>
+            <main className='flex relative flex-col space-y-32 items-center justify-between min-h-screen'>
                 <HomeNav />
                 <HomeBanner />
                 <HomeAds />
                 {/* reviews */}
-                <div className='flex flex-col items-center'>
-                    <div className="flex">
+                <div className='flex flex-col items-center px-[130px] h-[80vh]'>
+                    <div className='flex items-center justify-center w-full mb-10'>
+                        <div className='w-1/5 border-b-2'></div>
+                        <span className="px-12 font-bold text-xl">Reviews</span>
+                        <div className='w-1/5 border-b-2'></div>
+                    </div>
+                    <div className="flex flex-wrap items-center  justify-center h-full space-x-12 mb-12">
                         {
                             Array.from({ length: reviewsNumber }, (_, index) => {
                                 return <Review key={index} {...reviews[index]} />
@@ -38,14 +43,11 @@ const Home = () => {
                             )
                         }
                     </div>
-                    {reviewsNumber <= 8 ?
-                        <button className="" onClick={updateReviewNumber}>
-                            <span>Load More</span>
-                        </button>
-                        :
-                        <button className="" onClick={updateReviewNumber}>
-                            <span>Show Less</span>
-                        </button>}
+
+                    <button className="" onClick={updateReviewNumber}>
+                        <span className="font-bold underline hover:text-primary"> {reviewsNumber <= 8 ? "Load More..." : "Show few"}</span>
+                    </button>
+
                 </div>
                 {/* reviews */}
                 <HomeSecondBanner />
