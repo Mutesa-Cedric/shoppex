@@ -6,7 +6,7 @@ interface NavLink {
   name: string
   link: string
 }
-const navLinks: NavLink[] = [
+export const navLinks: NavLink[] = [
   {
     name: 'Home',
     link: '/',
@@ -26,12 +26,14 @@ const navLinks: NavLink[] = [
 ]
 function HomeNav() {
   return (
-    <div className='h-20 w-full flex items-center justify-between'>
-      <Image src={'/images/logo.svg'} alt="logo" width={40} height={40} />
+    <div className='h-24 w-full flex items-center justify-between px-[170px]'>
+      <Link href={'/'} >
+        <Image src={'/images/logo.svg'} alt="logo" width={40} height={40} className="cursor-pointer"/>
+      </Link>
       <div className='flex items-center space-x-12'>
         {navLinks.map((link, index) => {
           return <Link href={link.link}>
-            <p key={index}  className='text-black hover:cursor-pointer hover:text-primary text-[17px] leading-[21px] font-semibold '>{link.name}</p>
+            <p key={index} className='text-black hover:cursor-pointer hover:text-primary text-[17px] leading-[21px] font-semibold '>{link.name}</p>
           </Link>
         })}
       </div>

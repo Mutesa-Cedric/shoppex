@@ -9,7 +9,7 @@ import HomeSecondBanner from '../components/Home/HomeSecondBanner';
 import Review from '../components/Home/Review';
 import { reviews } from '../constants/Reviews';
 const Home = () => {
-    const [reviewsNumber, setreviewsNumber] =useState(5);
+    const [reviewsNumber, setreviewsNumber] = useState(5);
     const updateReviewNumber = () => {
         if (reviewsNumber <= 8) {
             setreviewsNumber(reviewsNumber + 3);
@@ -19,12 +19,12 @@ const Home = () => {
     }
 
     return (
-        <div className='px-[170px] bg-[#FAFAFE]'>
+        <div className=' relative bg-[#FAFAFE] flex flex-col justify-between'>
             <Head>
                 <title>shoppex -  welcome</title>
                 <link rel="icon" href="/images/logo.svg" />
             </Head>
-            <main className='flex flex-col space-y-12 items-center justify-between min-h-screen'>
+            <main className='flex relative flex-col space-y-24 items-center justify-between min-h-screen'>
                 <HomeNav />
                 <HomeBanner />
                 <HomeAds />
@@ -50,8 +50,8 @@ const Home = () => {
                 {/* reviews */}
                 <HomeSecondBanner />
                 <HomeContactUs />
-                <HomeFooter />
             </main>
+            <HomeFooter />
         </div>
     )
 }
