@@ -55,7 +55,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
             onAuthStateChanged(auth, (user) => {
                 if (user) {
                     // Logged in...
-                    // router.push('/items')
+                    router.push('/items')
                     setUser(user)
                     setLoading(false)
                 } else {
