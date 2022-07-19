@@ -55,18 +55,18 @@ export function AuthProvider({ children }: AuthProviderProps) {
             onAuthStateChanged(auth, (user) => {
                 if (user) {
                     // Logged in...
+                    // router.push('/items')
                     setUser(user)
                     setLoading(false)
-                    setInitialLoading(false)
                 } else {
                     // Not logged in...
                     setUser(null)
                     setLoading(true)
                     router.push('/')
-                    setTimeout(() => {
-                        setInitialLoading(false)
-                    }, 700)
                 }
+                setTimeout(() => {
+                    setInitialLoading(false)
+                }, 800)
             }),
         [auth]
     )

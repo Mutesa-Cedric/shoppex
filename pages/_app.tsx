@@ -6,19 +6,20 @@ import { RecoilRoot } from 'recoil'
 function MyApp({ Component, pageProps }: { Component: any; pageProps: AppProps }) {
   return (
     <RecoilRoot>
-      {
-        Component.singlePage ?
-          (
-            <Component {...pageProps} />
-          ) : (
-            <AuthProvider>
+      <AuthProvider>
+
+        {
+          Component.singlePage ?
+            (
+              <Component {...pageProps} />
+            ) : (
               <MainLayout>
                 <Component {...pageProps} />
               </MainLayout>
-            </AuthProvider>
 
-          )
-      }
+            )
+        }
+      </AuthProvider>
     </RecoilRoot>
 
   )

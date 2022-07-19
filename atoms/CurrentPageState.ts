@@ -9,3 +9,8 @@ export const currentSideBar=atom({
     key:"currentSideBar",
     default:"viewItems"
 })
+
+export const profileMode=atom({
+    key:"profileMode",
+    default:"view"
+})

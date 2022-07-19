@@ -1,38 +1,32 @@
-import React from 'react'
+import Head from 'next/head';
+import Image from 'next/image';
+import React, { useState } from 'react'
+import { useRecoilState } from 'recoil';
+import { currentPageState, currentSideBar, profileMode } from '../atoms/CurrentPageState';
+import EditProfile from '../components/Profile/EditProfile';
+import ViewProfile from '../components/Profile/ViewProfile';
+import useAuth from '../hooks/useAuth'
 
 function profile() {
-    let logout = () => {
+    const [mode, setMode] = useRecoilState(profileMode);
+    const [activePage, setCurrentPage] = useRecoilState(currentPageState);
+    const { user } = useAuth();
+    setCurrentPage('unknown')
+    const { logout } = useAuth();
 
-    }
     return (
-        <div className='w-full h-screen'>
-            <div>
-                <h1>Your Profile</h1>
-                <div>
-
-                </div>
-            </div>
-            <div>
-                <h1>
-                    your recent activities
-                </h1>
-                <div>
-
-                </div>
-            </div>
-            <div>
-                <h1>
-                    statistics
-                </h1>
-                <div>
-
-                </div>
-            </div>
-            <div>
-                <button className='px-4 py-2 bg-red-500' onClick={() => logout()}>
-                    logout
-                </button>
-            </div>
+        <div className="bg-[#FAFAFE] md:overflow-y-hidden w-[72%] h-full flex items-center justify-between">
+            <Head>
+                <title>shoppex - your profile</title>
+                <link rel="icon" href="/images/logo.svg" />
+            </Head>
+            <main className='flex flex-col w-full items-center justify-between px-28 py-12 space-y-8'>
+                {
+                    mode === 'view' ?
+                        <ViewProfile />
+                        : <EditProfile />
+                }
+            </main>
         </div>
     )
 }

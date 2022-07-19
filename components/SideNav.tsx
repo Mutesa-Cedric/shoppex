@@ -5,6 +5,7 @@ import { AiOutlineMenu, AiOutlineReload, AiOutlineShoppingCart } from 'react-ico
 import { TbDeviceAnalytics } from "react-icons/tb"
 import { useRecoilState } from 'recoil';
 import { currentPageState } from '../atoms/CurrentPageState';
+import useAuth from '../hooks/useAuth';
 
 function SideNav() {
   const [currentPage, setCurrentPage] = useRecoilState(currentPageState);
@@ -17,12 +18,20 @@ function SideNav() {
     history: false,
     analytics: false
   })
+
+  const { user } = useAuth();
+  console.log(user);
   return (
     <div className=' h-screen w-20 bg-white shadow-sm flex flex-col items-center justify-between py-10'>
-      <Image src="/images/logo.svg" width={50} height={50} />
+      <Link href={'/profile'}>
+        {user?.photoURL ?
+          <Image src={user.photoURL} width={50} height={50} className="rounded-full cursor-pointer" />
+          : <Image src={"/images/profile.svg"} width={50} height={50} className="rounded-full cursor-pointer" />
+        }
+      </Link>
       <div className="space-y-9 font-bold w-full flex  flex-col">
         <div className="w-full flex relative justify-center items-center py-3" style={currentPage === "items" ? currentPageStyle : {}}>
-          <Link href={'/'} >
+          <Link href={'/items'} >
             <AiOutlineMenu onMouseEnter={() => setHover((prevState) => {
               return {
                 ...prevState,
@@ -73,8 +82,8 @@ function SideNav() {
             })} className="cursor-pointer" size={24} color={hover.analytics ? "#F9A109" : "#454545"} fontWeight={800} onClick={() => setCurrentPage("statistics")} />
           </Link>
           <div className='absolute bg-[#454545]'></div>
-          <div className='absolute left-[70%] bg-[#454545] text-white rounded-md' 
-          style={hover.analytics ? {display:"flex"} :{display:"none"}}>
+          <div className='absolute left-[70%] bg-[#454545] text-white rounded-md'
+            style={hover.analytics ? { display: "flex" } : { display: "none" }}>
             <span className='px-4 rounded-[20px] text-[13px] font-normal py-[2px]'>statistics</span>
           </div>
         </div>
