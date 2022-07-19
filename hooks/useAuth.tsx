@@ -62,7 +62,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
                     // Not logged in...
                     setUser(null)
                     setLoading(true)
-                    router.push('/welcome')
+                    router.push('/')
                     setTimeout(() => {
                         setInitialLoading(false)
                     }, 700)
@@ -106,6 +106,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
                 router.push('/items');
             }).catch((err) => {
                 setError(err.message);
+                alert(err.message);
             }).finally(() => {
                 setLoading(false);
             })
@@ -122,6 +123,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
             router.push('/');
         }).catch((err) => {
             setError(err.message);
+            alert(err.message);
         }).finally(() => {
             setLoading(false);
         })
@@ -139,6 +141,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
             }
             ).catch((err) => {
                 setError(err.message);
+                alert(err.message);
             }
             ).finally(() => {
                 setLoading(false);
@@ -158,6 +161,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
             }
             ).catch((err) => {
                 setError(err.message);
+                alert(err.message);
+
             }
             ).finally(() => {
                 setLoading(false);

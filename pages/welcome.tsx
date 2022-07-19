@@ -1,13 +1,28 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import type { NextPage } from "next"
 import AuthForm from '../components/AuthForm';
 import Image from 'next/image';
 import Head from 'next/head'
 import useAuth from '../hooks/useAuth';
+import { useRouter } from 'next/router';
+import { isArray } from 'util';
 const Welcome = () => {
+    const router = useRouter();
     const [currentPage, setcurrentPage] = useState('signup');
-    const {error}=useAuth();
-    
+    const { mode } = router.query;
+    useEffect(() => {
+        if (mode && !isArray(mode) && mode === 'login') {
+            setcurrentPage(mode)
+        }
+        else {
+            setcurrentPage("signup");
+        }
+        return () => {
+
+        }
+    }, [mode])
+
+    const { error } = useAuth();
     const toLogin = () => {
         setcurrentPage('login');
     }
@@ -15,6 +30,7 @@ const Welcome = () => {
     const toSignup = () => {
         setcurrentPage('signup');
     }
+
     return (
         <div>
             <Head>
@@ -31,5 +47,5 @@ const Welcome = () => {
     )
 }
 
-Welcome.singlePage=true;
+Welcome.singlePage = true;
 export default Welcome

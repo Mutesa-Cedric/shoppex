@@ -1,13 +1,15 @@
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import React from 'react'
 
 function HomeAds() {
+  const router=useRouter();
   return (
     <div className='flex justify-between items-center w-full px-[170px] py-12'>
       <div className="flex flex-col space-y-5 w-2/4">
         <h1 className="font-bold text-4xl max-w-lg">We provide the best interface for shopping list management.</h1>
         <p className="text-black/75 font-bold pb-6 max-w-lg ">Shoppex  is here to give you a clear and simple way to help you manage all you shopping items in case you&apos;re going to the market. Don&apos;t face pain when shopping...</p>
-        <button className='text-primary border-2 border-primary rounded-[20px] px-6 py-2 w-2/4 font-bold hover:bg-primary hover:text-white transition-all duration-500'>
+        <button className='text-primary border-2 border-primary rounded-[20px] px-6 py-2 w-2/4 font-bold hover:bg-primary hover:text-white transition-all duration-500' onClick={() => router.push('/welcome?mode=signup')}>
           Get started now
         </button>
       </div>

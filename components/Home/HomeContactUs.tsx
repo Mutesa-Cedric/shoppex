@@ -1,5 +1,3 @@
-import React from 'react'
-
 function HomeContactUs() {
   return (
     <div className="flex justify-between w-full md:flex-row px-[150px] pt-8 pb-24 flex-col">
@@ -10,11 +8,11 @@ function HomeContactUs() {
       <div className='w-2/4 relative' >
         <form className="flex flex-col space-y-8 w-full pl-24">
           <input type="email" placeholder='email address'
-            className=' rounded-3xl h-12 z-10 px-5 focus:outline-none focus:border focus:border-primary' />
+            className=' rounded-3xl h-12 z-10 px-5 focus:outline-none  border border-white focus:border-primary' />
           <textarea name="message" id="" cols={30} rows={8} placeholder="Message"
-            className=' pl-5 pt-3 rounded-3xl z-10 focus:outline-none focus:border focus:border-primary' />
-          <button className='self-end bg-[#FF8A00] text-white px-10 font-bold py-[5px] rounded-3xl' type='button'>
-          <span>send</span>  
+            className=' pl-5 pt-3 rounded-3xl z-10 focus:outline-none border border-white focus:border-primary' />
+          <button className='self-end bg-[#FF8A00] text-white px-10 font-bold py-[5px] rounded-3xl cursor-pointer'>
+            <span>send</span>
           </button>
         </form>
         <div className="absolute bottom-0 top-0 w-full h-full border"

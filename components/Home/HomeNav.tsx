@@ -38,13 +38,13 @@ function HomeNav() {
         })}
       </div>
       <div className='flex items-center space-x-10'>
-        <Link href={'/welcome'}>
+        <Link href={'/welcome?mode=login'}>
           <button className='text-primary font-bold text-[17px]'>
             Login
           </button>
         </Link>
 
-        <Link href={'/welcome'}>
+        <Link href={'/welcome?mode=signup'}>
           <button className='text-white bg-[#FF8A00] hover:bg-primary rounded-[64px] py-[7px] font-semibold text-[17px] px-8 '>
             Create Account
           </button>

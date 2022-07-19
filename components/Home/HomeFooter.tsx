@@ -11,7 +11,7 @@ function HomeFooter() {
           {
             navLinks.map((navLink) => {
               return <Link href={navLink.link}>
-                <span className="text-white/75 font-bold">{navLink.name}</span>
+                <span className="text-white/75 font-bold hover:cursor-pointer hover:text-white">{navLink.name}</span>
               </Link>
             })
           }
@@ -25,7 +25,7 @@ function HomeFooter() {
         </Link>
       </div>
       <div className='text-white/30 font-bold text-sm w-full text-center flex items-center justify-center '>
-        <span className="ml-16">Copyright © MUTESA Cedrick 2022</span>
+        <span className="ml-16">Copyright © <a href="https://github.com/Mutesa-Cedric" className="hover:text-white/75">MUTESA Cedrick</a>  2022</span>
       </div>
     </div>
   )

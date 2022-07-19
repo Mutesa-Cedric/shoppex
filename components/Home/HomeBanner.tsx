@@ -1,8 +1,9 @@
 import Image from 'next/image'
 import React from 'react'
 import { AiOutlinePlus } from 'react-icons/ai'
-
+import { useRouter } from 'next/router'
 function HomeBanner() {
+  const router = useRouter();
   return (
     <div className='w-full h-auto flex justify-between px-[170px]'>
       <div className='flex flex-col space-y-20 relative'>
@@ -11,7 +12,7 @@ function HomeBanner() {
             <h1 className='text-[52px] leading-[60px] font-bold max-w-xl'>Take your shopping list wherever you go.</h1>
             <p className='text-lg font-bold text-gray-500'>Shoppex is the best option for making shopping plan in easy steps.</p>
           </div>
-          <button className='text-white bg-[#FF8A00] hover:bg-primary rounded-[64px] py-[9px] uppercase px-10 '>
+          <button className='text-white bg-[#FF8A00] hover:bg-primary rounded-[64px] py-[9px] uppercase px-10 ' onClick={() => router.push('/welcome?mode=signup')}>
             <span >Make Your List</span>
           </button>
         </div>
