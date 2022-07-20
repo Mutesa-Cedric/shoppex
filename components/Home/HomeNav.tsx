@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import { AiOutlineMenu } from 'react-icons/ai'
+import { MdCancel } from 'react-icons/md'
 
 interface NavLink {
   name: string
@@ -25,19 +27,43 @@ export const navLinks: NavLink[] = [
   }
 ]
 function HomeNav() {
+  const [isOpen, setIsOpen] = React.useState(false)
   return (
-    <div className='h-24 w-full flex items-center justify-between px-[170px]'>
+    <div className='h-24 md:w-full w-screen flex items-center justify-between lg:px-[170px] md:px-[60px] px-6'>
       <Link href={'/'} >
         <Image src={'/images/logo.svg'} alt="logo" width={40} height={40} className="cursor-pointer" />
       </Link>
-      <div className='flex items-center space-x-12'>
+
+      {!isOpen ?
+        <button className='md:hidden' onClick={() => setIsOpen(true)}>
+          <AiOutlineMenu size={30} fill="#F9A109" />
+        </button>
+        :
+        <div className='md:hidden relative'>
+          <button className='md:hidden' onClick={() => setIsOpen(false)} >
+            <MdCancel size={30} fill="#F9A109" />
+          </button>
+          <div className='absolute shadow-md bg-white top-12 z-50 w-[88vw] rounded-md p-5 space-y-3 flex justify-center flex-col items-center right-0'>
+            {
+              navLinks.map((link, index) => {
+                return <Link href={link.link}>
+                  <p key={index} className='text-black hover:cursor-pointer hover:text-primary text-[17px] leading-[21px] font-semibold '>{link.name}</p>
+                </Link>
+              })
+            }
+          </div>
+        </div>
+
+      }
+
+      <div className='md:flex hidden items-center space-x-12'>
         {navLinks.map((link, index) => {
           return <Link href={link.link}>
             <p key={index} className='text-black hover:cursor-pointer hover:text-primary text-[17px] leading-[21px] font-semibold '>{link.name}</p>
           </Link>
         })}
       </div>
-      <div className='flex items-center space-x-10'>
+      <div className='md:flex hidden items-center space-x-10'>
         <Link href={'/welcome?mode=login'}>
           <button className='text-primary font-bold text-[17px]'>
             Login

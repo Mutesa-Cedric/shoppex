@@ -1,20 +1,16 @@
-import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
-import useAuth from '../hooks/useAuth'
 import { useRecoilState } from "recoil";
 import { currentPageState } from "../atoms/CurrentPageState";
 import { AiOutlineSearch } from 'react-icons/ai'
 import Category from '../components/Category'
-import ConfirmModal from '../components/ConfirmModal';
 
-const Items= () => {
+const Items = () => {
 
-  // const { user, logout, initialLoading } = useAuth();
-  const [currentPage, setCurrentPage] = useRecoilState(currentPageState);
-  setCurrentPage('items');
-  return (
-    <div className="bg-[#FAFAFE] md:overflow-y-hidden w-[72%] h-full flex items-center justify-between">
+    // const { user, logout, initialLoading } = useAuth();
+    const [currentPage, setCurrentPage] = useRecoilState(currentPageState);
+    setCurrentPage('items');
+    return (
+        <div className="bg-[#FAFAFE] md:overflow-y-hidden w-[72%] h-full flex items-center justify-between">
             <Head>
                 <title>Shoppex - your items</title>
                 <link rel="icon" href="/images/logo.svg" />
@@ -28,7 +24,7 @@ const Items= () => {
                     </div>
                     <div className='relative'>
                         <input type="text" placeholder='search item'
-                            className='bg-white py-3 rounded-xl pl-12 placeholder:capitalize w-full shadow-sm focus:outline-none focus:border-primary focus:border-2 text-gray-500 ' />
+                            className='bg-white py-3 rounded-xl pl-12 placeholder:capitalize border-2 w-full shadow-sm focus:outline-none focus:border-primary border-white text-gray-500 ' />
                         <div className="absolute top-4 left-4">
                             <AiOutlineSearch size={20} />
                         </div>
@@ -41,6 +37,6 @@ const Items= () => {
                 </div>
             </div>
         </div>
-  )
+    )
 }
 export default Items

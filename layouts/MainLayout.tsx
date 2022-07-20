@@ -11,7 +11,6 @@ interface LayoutProps {
 }
 function MainLayout({ children }: LayoutProps) {
     const { initialLoading } = useAuth();
-    const currentPage = useRecoilValue(currentPageState);
     const activeSideBar = useRecoilValue(currentSideBar)
     return (
         <div className="h-screen bg-[#FAFAFE] max-w-screen  flex items-center justify-center"
