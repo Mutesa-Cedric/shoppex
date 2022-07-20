@@ -2,10 +2,10 @@ import Head from 'next/head'
 import React from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { currentPageState } from '../atoms/CurrentPageState';
-import ConfirmModal from '../components/ConfirmModal';
-import SummaryChart from '../components/SummaryChart';
-import TopCategory from '../components/TopCategory';
-import TopItem from '../components/TopItem';
+import ConfirmModal from '../components/UI/ConfirmModal';
+import SummaryChart from '../components/statistics/SummaryChart';
+import TopCategory from '../components/statistics/TopCategory';
+import TopItem from '../components/statistics/TopItem';
 import { topItems, topCategories } from "../constants/topItems"
 function Statistics() {
     const [currentPage, setCurrentPage] = useRecoilState(currentPageState);
@@ -42,7 +42,7 @@ function Statistics() {
                     <SummaryChart />
                 </div>
             </div>
-            <ConfirmModal/>
+            <ConfirmModal />
         </div>
     )
 }

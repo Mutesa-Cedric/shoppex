@@ -1,6 +1,6 @@
 import React from 'react'
 import { useRecoilState } from 'recoil'
-import { currentSideBar } from '../atoms/CurrentPageState'
+import { currentSideBar } from '../../atoms/CurrentPageState'
 
 function AddItem() {
   const [activeSideBar, setActiveSideBar] = useRecoilState(currentSideBar);

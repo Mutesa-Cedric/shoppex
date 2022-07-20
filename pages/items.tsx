@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { useRecoilState } from "recoil";
 import { currentPageState } from "../atoms/CurrentPageState";
 import { AiOutlineSearch } from 'react-icons/ai'
-import Category from '../components/Category'
+import Category from '../components/Item/Category'
 
 const Items = () => {
 

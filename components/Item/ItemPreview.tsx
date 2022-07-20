@@ -2,8 +2,8 @@ import Image from 'next/image';
 import React from 'react'
 import { BiArrowBack } from 'react-icons/bi'
 import { useRecoilState, useRecoilValue } from 'recoil'
-import { currentSideBar } from '../atoms/CurrentPageState'
-import { ItemToSave } from '../atoms/ItemState';
+import { currentSideBar } from '../../atoms/CurrentPageState'
+import { ItemToSave } from '../../atoms/ItemState';
 
 function ItemPreview() {
   const [activeSideBar, setActiveSideBar] = useRecoilState(currentSideBar);

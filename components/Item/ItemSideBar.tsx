@@ -2,10 +2,10 @@ import Image from 'next/image'
 import React from 'react'
 import { MdModeEditOutline } from "react-icons/md"
 import { useRecoilState, useRecoilValue } from 'recoil'
-import { currentSideBar } from '../atoms/CurrentPageState';
-import { listItems } from '../atoms/ItemState';
+import { currentSideBar } from '../../atoms/CurrentPageState';
+import { listItems } from '../../atoms/ItemState';
 import NoItem from './NoItem';
-import ShoppingList from './ShoppingList';
+import ShoppingList from '../UI/ShoppingList';
 function ItemSideBar() {
   const [activeSideBar, setActiveSideBar] = useRecoilState(currentSideBar);
   const items = useRecoilValue(listItems);

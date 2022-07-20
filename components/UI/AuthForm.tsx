@@ -2,7 +2,7 @@ import { useState } from "react";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai"
 import { FcGoogle } from "react-icons/fc"
 import { useForm, SubmitHandler } from "react-hook-form";
-import useAuth from '../hooks/useAuth';
+import useAuth from '../../hooks/useAuth';
 
 interface Props {
     currentPage: string,

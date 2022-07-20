@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import type { NextPage } from "next"
-import AuthForm from '../components/AuthForm';
+import AuthForm from '../components/UI/AuthForm';
 import Image from 'next/image';
 import Head from 'next/head'
 import useAuth from '../hooks/useAuth';

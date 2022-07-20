@@ -3,8 +3,8 @@ import React, { useState } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { currentPageState } from '../atoms/CurrentPageState';
 import { ShowHistoryItem } from '../atoms/ItemState';
-import HistoryItem from '../components/HistoryItem';
-import ViewHistoryItem from '../components/ViewHistoryItem';
+import HistoryItem from '../components/history/HistoryItem';
+import ViewHistoryItem from '../components/history/ViewHistoryItem';
 import { testItem } from '../testItem';
 import { Item } from '../typings';
 
