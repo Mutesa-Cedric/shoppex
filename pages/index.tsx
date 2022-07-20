@@ -10,13 +10,13 @@ import Review from '../components/Home/Review';
 import { reviews } from '../constants/Reviews';
 import useAuth from '../hooks/useAuth';
 const Home = () => {
-    const [reviewsNumber, setreviewsNumber] = useState(5);
+    const [reviewsNumber, setreviewsNumber] = useState(6);
     const { loading, initialLoading } = useAuth();
     const updateReviewNumber = () => {
-        if (reviewsNumber <= 8) {
+        if (reviewsNumber <= 9) {
             setreviewsNumber(reviewsNumber + 3);
         } else {
-            setreviewsNumber(5);
+            setreviewsNumber(6);
         }
     }
 
@@ -34,13 +34,13 @@ const Home = () => {
                     <HomeBanner />
                     <HomeAds />
                     {/* reviews */}
-                    <div className='flex flex-col items-center lg:px-[130px] md:px-[20px] px-4 md:h-[80vh]'>
+                    <div className='flex flex-col items-center lg:px-[130px] md:px-[20px] px-4'>
                         <div className='flex items-center justify-center w-full mb-10'>
                             <div className='w-1/5 border-b-2'></div>
                             <span className="px-12 font-bold text-xl">Reviews</span>
                             <div className='w-1/5 border-b-2'></div>
                         </div>
-                        <div className="md:flex grid grid-cols-1 md:flex-wrap items-center  justify-center h-full md:gap-0 gap-8 md:space-x-12 mb-12">
+                        <div className="grid md:grid-cols-3 grid-cols-1 h-full gap-8  mb-12">
                             {
                                 Array.from({ length: reviewsNumber }, (_, index) => {
                                     return <Review key={index} {...reviews[index]} />
@@ -50,7 +50,7 @@ const Home = () => {
                         </div>
 
                         <button className="" onClick={updateReviewNumber}>
-                            <span className="font-bold underline hover:text-primary"> {reviewsNumber <= 8 ? "Load More..." : "Show few"}</span>
+                            <span className="font-bold underline hover:text-primary"> {reviewsNumber <= 9 ? "Load More..." : "Show few"}</span>
                         </button>
 
                     </div>

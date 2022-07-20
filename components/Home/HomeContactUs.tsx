@@ -1,6 +1,6 @@
 function HomeContactUs() {
   return (
-    <div className="flex justify-between md:w-full w-screen md:flex-row md:space-y-0 space-y-8 lg:px-[150px] md:px-[80px] px-4 pt-8 pb-24 flex-col">
+    <div className="flex justify-between md:w-full w-screen md:flex-row md:space-y-0 space-y-8 lg:px-[150px] md:px-[80px] px-4 pt-8 pb-16 flex-col">
       <div className='flex flex-col md:items-start items-center space-y-8 md:w-2/4'>
         <h1 className='font-bold text-2xl'>Contact us</h1>
         <p className='font-bold text-gray-500 leading-7 md:text-start text-center'>Something to tell us? <br /> Fell free to contact us , we&apos;ll be  open and happy <br /> to receive your idea and consider it. </p>

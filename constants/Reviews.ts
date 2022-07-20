@@ -88,5 +88,13 @@ export const reviews:Review[]=[
         location:'calfornia',
         content:'Shoppex is a good application. It helps me to manage my shopping list when am going to shop.I really like using it.',
         rating:0
+    },
+    {   
+        id:12,
+        name:"Rugira Kevin",
+        img: `${baseUrl}2.png`,
+        location:'Kigali',
+        content:'Shoppex is a good application. It helps me to manage my shopping list when am going to shop.I really like using it.',
+        rating:0
     }
 ]

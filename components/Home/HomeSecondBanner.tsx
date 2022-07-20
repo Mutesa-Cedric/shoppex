@@ -6,7 +6,7 @@ const secondDots = new Array(110).fill(1);
 function HomeSecondBanner() {
   const router=useRouter();
   return (
-    <div className='md:w-full w-screen md:h-[480px] h-screen flex flex-col items-center justify-center bg-[#7F485A] space-y-10 relative'>
+    <div className='w-screen md:h-[480px] h-screen flex flex-col items-center justify-center bg-[#7F485A] space-y-10 relative'>
       <p className="text-white font-bold text-2xl max-w-md text-center">Don&apos;t be late! Make your shopping perfect and enjoyable with us.</p>
       <button className='text-primary border-2 border-primary rounded-[20px] px-6 py-2  font-bold hover:bg-primary hover:text-white transition-all duration-500' onClick={() => router.push('/welcome?mode=signup')}>
         Get started now
