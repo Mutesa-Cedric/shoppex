@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { currentPageState } from '../atoms/CurrentPageState';
+import { currentPageState, showItemNav } from '../atoms/CurrentPageState';
 import { ShowHistoryItem } from '../atoms/ItemState';
 import HistoryItem from '../components/history/HistoryItem';
 import ViewHistoryItem from '../components/history/ViewHistoryItem';
@@ -10,10 +10,22 @@ import { Item } from '../typings';
 
 function History() {
     const [currentPage, setCurrentPage] = useRecoilState(currentPageState);
-    const showHistoryItem=useRecoilValue(ShowHistoryItem)
+    const showHistoryItem = useRecoilValue(ShowHistoryItem)
+    const [show, setShow] = useRecoilState(showItemNav);
+    const [size, setSize] = useState(1200);
+    useEffect(() => {
+        setSize(window.innerWidth);
+        window.addEventListener('resize', () => {
+            setSize(window.innerWidth)
+        });
+        return () => {
+            window.removeEventListener('resize', () => { })
+        }
+    }, [])
     setCurrentPage('history');
     return (
-        <div className="bg-[#FAFAFE] md:overflow-y-hidden w-[72%] h-full flex justify-between">
+        <div className="bg-[#FAFAFE] md:overflow-y-hidden md:w-[72%] ml-20 w-full flex justify-between"
+            style={{ display: `${show && size < 768 ? "none" : ''}` }}>
             <Head>
                 <title>Shoppex - Your History</title>
                 <link rel="icon" href="/images/logo.svg" />
@@ -21,7 +33,7 @@ function History() {
             {showHistoryItem ?
                 <ViewHistoryItem {...testItem} />
                 :
-                <div className='flex flex-col w-full px-20 mt-12'>
+                <div className='flex flex-col w-full md:px-20 px-4 mt-12'>
                     <h1 className='text-[#34333A] font-extrabold text-[26px] leading-[32px] mb-8'>Shopping history</h1>
                     <div className="mb-8">
                         <h1 className="font-semibold text-[13px] pl-2">January 2022</h1>

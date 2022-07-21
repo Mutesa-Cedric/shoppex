@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { currentPageState, showItemNav } from '../atoms/CurrentPageState';
 import ConfirmModal from '../components/UI/ConfirmModal';
@@ -10,19 +10,20 @@ import { topItems, topCategories } from "../constants/topItems"
 function Statistics() {
     const [currentPage, setCurrentPage] = useRecoilState(currentPageState);
     const [show, setShow] = useRecoilState(showItemNav);
-    // const [size, setSize] = useState(window.innerWidth);
-    // useEffect(() => {
-    //   window.addEventListener('resize', () => {
-    //     setSize(window.innerWidth)
-    //   });
-    //   return () => {
-    //     window.removeEventListener('resize', () => { })
-    //   }
-    // }, [])
+    const [size, setSize] = useState(1200);
+    useEffect(() => {
+        setSize(window.innerWidth)
+      window.addEventListener('resize', () => {
+        setSize(window.innerWidth)
+      });
+      return () => {
+        window.removeEventListener('resize', () => { })
+      }
+    }, [])
     setCurrentPage('statistics');
     return (
-        <div className="bg-[#FAFAFE]  md:overflow-y-hidden px-28 pt-16 pb-20 md:w-[72%] md:h-full h-screen flex items-center justify-between"
-            style={{ display: `${show ? "flex" : ''}` }}>
+        <div className="bg-[#FAFAFE]  md:overflow-y-hidden md:px-28 px-4 pt-16 pb-20 md:w-[72%] md:h-full h-screen flex items-center justify-between"
+        style={{ display: `${show && size < 768 ? "none" : ''}` }}>
             <Head>
                 <title>Shoppex - your statistics</title>
                 <link rel="icon" href="/images/logo.svg" />
