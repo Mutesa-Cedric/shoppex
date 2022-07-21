@@ -5,7 +5,7 @@ function NoItem() {
             <div className='flex text-[#34333A] font-extrabold text-2xl mb-32'>
                 No item
             </div>
-            <div className=' absolute bottom-0 z-50'>
+            <div className=' absolute md:bottom-0 bottom-10 z-50'>
                 <Image src={'/images/cart.svg'} alt="cart image" width={250} height={250} />
             </div>
         </div>

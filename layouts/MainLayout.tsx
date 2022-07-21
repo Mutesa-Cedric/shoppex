@@ -15,7 +15,7 @@ function MainLayout({ children }: LayoutProps) {
     return (
         <div className="h-screen bg-[#FAFAFE] max-w-screen  flex items-center justify-center"
         >
-            <div className=" w-full h-screen flex justify-between" style={{ display: `${initialLoading ? "none" : ""}` }}>
+            <div className=" w-full h-screen overflow-y-scroll flex justify-between" style={{ display: `${initialLoading ? "none" : ""}` }}>
                 <SideNav />
                 {children}
                 {

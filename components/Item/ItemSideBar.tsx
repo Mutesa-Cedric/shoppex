@@ -1,25 +1,30 @@
 import Image from 'next/image'
 import React from 'react'
-import { MdModeEditOutline } from "react-icons/md"
+import { MdCancel, MdModeEditOutline } from "react-icons/md"
 import { useRecoilState, useRecoilValue } from 'recoil'
-import { currentSideBar } from '../../atoms/CurrentPageState';
+import { currentSideBar, showItemNav } from '../../atoms/CurrentPageState';
 import { listItems } from '../../atoms/ItemState';
 import NoItem from './NoItem';
 import ShoppingList from '../UI/ShoppingList';
 function ItemSideBar() {
   const [activeSideBar, setActiveSideBar] = useRecoilState(currentSideBar);
   const items = useRecoilValue(listItems);
+  const [show,setShow] = useRecoilState(showItemNav);
 
   return (
-    <div className="h-full font-quicksand  shadow-sm lg:flex hidden flex-col">
-      <div className='bg-secondary w-full pl-10 pt-6 pr-6 h-5/6'>
-        <div className='bg-[hsl(340,28%,39%)] relative rounded-3xl w-full h-32 flex items-center justify-around  mb-4'>
+    <div className="h-full font-quicksand md:ml-0 ml-20  shadow-sm lg:flex hidden flex-col"
+      style={{ display: `${show ? "flex" : ''}` }}>
+      <div className='bg-secondary w-full relative pl-10 pt-6 pr-6 h-5/6'>
+        <div className='md:hidden flex mx-auto absolute top-0 right-32' onClick={()=>setShow(false)}>
+            <MdCancel fill='hsl(340,28%,39%)' size={32}/>
+        </div>
+        <div className='bg-[hsl(340,28%,39%)] md:mt-0 mt-4 relative rounded-3xl w-full py-3 flex items-center justify-around  mb-4'>
           <div className='absolute bottom-[-12px] left-3'>
             <Image src={'/images/source.svg'} height={190} width={70} />
           </div>
           <div className="flex flex-col items-start ml-32 justify-between text-white space-y-4">
-            <span className=" w-5/6 leading-5  font-bold">Didn&apos;t find what you need?</span>
-            <button className='px-8 bg-white text-[#34333A] text-sm leading-[17.4px] font-semibold py-3 rounded-xl'
+            <span className=" md:w-5/6 leading-5  font-bold">Didn&apos;t find what you need?</span>
+            <button className='md:px-8 px-3 bg-white text-[#34333A] text-sm leading-[17.4px] font-semibold md:py-3 py-2 rounded-xl'
               onClick={() => setActiveSideBar("addItem")}>
               Add item
             </button>

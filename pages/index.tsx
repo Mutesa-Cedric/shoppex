@@ -21,7 +21,7 @@ const Home = () => {
     }
 
     return (
-        <div className=' relative overflow-x-hidden bg-[#FAFAFE] flex flex-col justify-center items-center min-h-screen'>
+        <div className=' relative  overflow-x-hidden bg-[#FAFAFE] flex flex-col justify-center items-center min-h-screen'>
             <Head>
                 <title>shoppex -  welcome</title>
                 <link rel="icon" href="/images/logo.svg" />
@@ -40,7 +40,7 @@ const Home = () => {
                             <span className="px-12 font-bold text-xl">Reviews</span>
                             <div className='w-1/5 border-b-2'></div>
                         </div>
-                        <div className="grid md:grid-cols-3 grid-cols-1 h-full gap-8  mb-12">
+                        <div className="grid md:grid-cols-3 3xl:grid-cols-4 grid-cols-1 h-full gap-8  mb-12">
                             {
                                 Array.from({ length: reviewsNumber }, (_, index) => {
                                     return <Review key={index} {...reviews[index]} />

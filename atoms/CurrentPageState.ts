@@ -14,3 +14,9 @@ export const profileMode=atom({
     key:"profileMode",
     default:"view"
 })
+
+
+export const showItemNav=atom({
+    key:"showItemNav",
+    default:false
+})

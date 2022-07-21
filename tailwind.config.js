@@ -6,12 +6,15 @@ module.exports = {
   ],
   theme: {
     extend: {
-      fontFamily:{
+      fontFamily: {
         quicksand: 'Quicksand, sans-serif',
       },
-      colors:{
+      colors: {
         'primary': '#F9A109',
-        "secondary":"#FFF0DE"
+        "secondary": "#FFF0DE"
+      },
+      screens: {
+        '3xl': '2000px'
       }
     }
   },

@@ -4,11 +4,12 @@ import React, { useState } from 'react'
 import { AiOutlineMenu, AiOutlineReload, AiOutlineShoppingCart } from 'react-icons/ai'
 import { TbDeviceAnalytics } from "react-icons/tb"
 import { useRecoilState } from 'recoil';
-import { currentPageState } from '../../atoms/CurrentPageState';
+import { currentPageState, showItemNav } from '../../atoms/CurrentPageState';
 import useAuth from '../../hooks/useAuth';
 
 function SideNav() {
   const [currentPage, setCurrentPage] = useRecoilState(currentPageState);
+  const [show, setShow] = useRecoilState(showItemNav);
   const currentPageStyle = {
     borderColor: '#F9A109',
     borderLeftWidth: '6px'
@@ -20,9 +21,8 @@ function SideNav() {
   })
 
   const { user } = useAuth();
-  console.log(user);
   return (
-    <div className=' h-screen w-20 bg-white shadow-sm flex flex-col items-center justify-between py-10'>
+    <div className=' h-screen w-20 bg-white shadow-sm flex flex-col fixed items-center justify-between py-10'>
       <Link href={'/profile'}>
         {user?.photoURL ?
           <Image src={user.photoURL} width={50} height={50} className="rounded-full cursor-pointer" />
@@ -88,7 +88,8 @@ function SideNav() {
           </div>
         </div>
       </div>
-      <div className='bg-primary relative flex items-center cursor-pointer justify-center h-12 w-12 rounded-full'>
+      <div className='bg-primary relative flex items-center cursor-pointer justify-center h-12 w-12 rounded-full'
+        onClick={() => setShow(!show)}>
         <AiOutlineShoppingCart size={28} color="white" />
         <div className='absolute flex items-center text-white justify-center h-6 w-6 text-sm font-bold bottom-7 right-0 rounded-md bg-[#EB5757]'>
           3
