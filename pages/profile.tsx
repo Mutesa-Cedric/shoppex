@@ -15,12 +15,12 @@ function profile() {
     const { logout } = useAuth();
 
     return (
-        <div className="bg-[#FAFAFE] md:overflow-y-hidden w-[72%] h-full flex items-center justify-between">
+        <div className="bg-[#FAFAFE] ml-20 md:overflow-y-hidden md:w-[72%] w-full h-full flex items-center justify-between">
             <Head>
                 <title>shoppex - your profile</title>
                 <link rel="icon" href="/images/logo.svg" />
             </Head>
-            <main className='flex flex-col w-full items-center justify-between px-28 py-12 space-y-8'>
+            <main className='flex flex-col w-full items-center justify-between md:px-28 px-4 py-12 space-y-8'>
                 {
                     mode === 'view' ?
                         <ViewProfile />

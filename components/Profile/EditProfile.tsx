@@ -11,13 +11,13 @@ function EditProfile() {
 
     return (
         <div className='w-full space-y-4 flex flex-col items-center justify-between '>
-            <div className='w-full flex  justify-between pr-12'>
+            <div className='w-full flex  justify-between md:pr-12 pr-4'>
                 <button className='text-primary flex space-x-2 transition-all duration-200 font-bold hover:scale-x-105 items-center'
                     onClick={() => setMode('view')}>
                     <AiOutlineArrowLeft /> <span>Back</span>
                 </button>
             </div>
-            <div className='w-full h-full border rounded-xl flex flex-col space-y-6 pr-48 pl-6 py-10'>
+            <div className='w-full h-full border rounded-xl flex flex-col space-y-6 lg:pr-48 md:pr-12 pl-6 md:py-10'>
                 <div className='flex flex-col'>
                     <h1 className='font-bold text-xl'>Change Info</h1>
                     <p className="text-gray-500">changes will be reflected to every service</p>

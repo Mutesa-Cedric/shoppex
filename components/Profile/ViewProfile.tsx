@@ -9,7 +9,7 @@ function ViewProfile() {
     const { user, logout } = useAuth();
     return (
         <div className='w-full space-y-8 flex flex-col items-center justify-between '>
-            <div className='w-full flex  justify-between pr-12'>
+            <div className='w-full flex  justify-between lg:pr-12  pr-4'>
                 <div className='flex flex-col  space-y-1'>
                     <h1 className='font-bold text-xl'>Profile Info</h1>
                     <p className='text-gray-500 font-bold'>your basic info</p>
@@ -20,7 +20,7 @@ function ViewProfile() {
             </div>
             <div className='w-full h-full border rounded-xl flex flex-col items-center'>
 
-                <div className='w-full py-4 flex items-center justify-between border-b-2 px-12'>
+                <div className='w-full py-4 flex items-center justify-between border-b-2 lg:px-12 md:px-6 px-2'>
                     <div>
                         <p className='font-bold text-xl'>Profile</p>
                         <p className='text-gray-500 font-bold'>some info maybe visible to other users</p>
