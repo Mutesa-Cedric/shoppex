@@ -23,6 +23,7 @@ type Shopping_list {
   created_at: DateTime
   id: ID!
   name: String
+  username: String
 }
 
 type Query {
