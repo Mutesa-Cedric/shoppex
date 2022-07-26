@@ -3,6 +3,9 @@ shoppex allows you to take your shopping list wherever you go.
 
 # screenshots
 
+![image](https://user-images.githubusercontent.com/96414111/180445739-06870b0c-7c8e-45e7-9416-96f64f3aa582.png)
+
+
 ![image](https://user-images.githubusercontent.com/96414111/177040622-e0329a88-eb5e-46ef-9310-6ac8496b0e6a.png)
 
 
