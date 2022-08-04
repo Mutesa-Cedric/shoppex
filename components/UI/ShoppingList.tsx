@@ -1,6 +1,22 @@
 import React from 'react'
-import { MdModeEditOutline } from 'react-icons/md'
+import { MdModeEditOutline } from 'react-icons/md';
+import { useRecoilState } from 'recoil';
+import { listItems } from '../../atoms/ItemState';
+
+interface ItemProps {
+    name: string,
+    quantity: number,
+}
+const Item = ({ name, quantity }: ItemProps) => {
+    return (
+        <div className="flex justify-between items-center mb-3">
+            <p className="capitalize text-[17px] font-semibold">{name}</p>
+            <span className=" text-primary border-2 border-primary py-1 px-5 text-[12px] leading-4 font-bold rounded-3xl">{quantity}PCS</span>
+        </div>
+    )
+}
 function ShoppingList() {
+    const [list] = useRecoilState(listItems);
     return (
         <div className='h-3/4 px-2 pt-4 w-full'>
             <div className="flex justify-between mb-4">
@@ -10,40 +26,13 @@ function ShoppingList() {
             <div>
                 <div>
                     <h1 className="font-medium text-[#828282] leading-[17.4px] mb-4 mt-6">Fruit and vegetables</h1>
-                    <div className="flex justify-between items-center mb-3">
-                        <p className="capitalize text-[17px] font-semibold">Avocado</p>
-                        <span className=" text-primary border-2 border-primary py-1 px-5 text-[12px] leading-4 font-bold rounded-3xl">3PCS</span>
-                    </div>
-                    <div className="flex justify-between items-center mb-3">
-                        <p className="capitalize text-[17px] font-semibold">Pre-cooked corn 450g</p>
-                        <span className=" text-primary border-2 border-primary py-1 px-5 text-[12px] leading-4 font-bold rounded-3xl">1PCS</span>
-                    </div>
-                    <div className="flex justify-between items-center mb-3">
-                        <p className="capitalize text-[17px] font-semibold">Chicken 2KG</p>
-                        <span className=" text-primary border-2 border-primary py-1 px-5 text-[12px] leading-4 font-bold rounded-3xl">3PCS</span>
-                    </div>
+                    {
+                        list.map(item => (
+                            <Item name={item} quantity={1} />
+                        ))
+                    }
                 </div>
 
-            </div>
-            <div>
-                <div>
-                    <h1 className="font-medium text-[#828282] leading-[17.4px] mb-4 mt-6">Fruit and vegetables</h1>
-                    <div className="flex justify-between items-center mb-3">
-                        <p className="capitalize text-[17px] font-semibold">Avocado</p>
-                        <span className=" text-primary border-2 border-primary py-1 px-5 text-[12px] leading-4 font-bold rounded-3xl">3PCS</span>
-                    </div>
-                    <div className="flex justify-between items-center mb-3">
-                        <p className="capitalize text-[17px] font-semibold">Chicken 1KG</p>
-                        <span className=" text-primary border-2 border-primary py-1 px-5 text-[12px] leading-4 font-bold rounded-3xl">1PCS</span>
-                    </div>
-                    <div className="flex justify-between items-center mb-3">
-                        <p className="capitalize text-[17px] font-semibold">Pork fillets 450g</p>
-                        <span className=" text-primary border-2 border-primary py-1 px-5 text-[12px] leading-4 font-bold rounded-3xl">1PCS</span>
-                    </div><div className="flex justify-between items-center mb-3">
-                        <p className="capitalize text-[17px] font-semibold">Pre-cooked corn 450g</p>
-                        <span className=" text-primary border-2 border-primary py-1 px-5 text-[12px] leading-4 font-bold rounded-3xl">1PCS</span>
-                    </div>
-                </div>
             </div>
         </div>
     )

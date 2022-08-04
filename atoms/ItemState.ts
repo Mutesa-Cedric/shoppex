@@ -15,15 +15,6 @@ export const HistoryItem = atom({
     }
 })
 
-// export const ItemToSave=atom({
-//     key:"ItemToSave",
-//     default:{
-//         image:"",
-//         name:"",
-//         category:"",
-//         note:"",
-//     }
-// })
 
 //for testing purpose
 export const ItemToSave = atom({
@@ -39,5 +30,5 @@ export const ItemToSave = atom({
 
 export const listItems = atom({
     key: "listItems",
-    default:[]
+    default: ['avocado', 'orange']
 })

@@ -3,17 +3,19 @@ import React from 'react'
 import { BiArrowBack } from 'react-icons/bi'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { currentSideBar } from '../../atoms/CurrentPageState'
-import { ItemToSave } from '../../atoms/ItemState';
+import { ItemToSave, listItems } from '../../atoms/ItemState';
 
 function ItemPreview() {
   const [activeSideBar, setActiveSideBar] = useRecoilState(currentSideBar);
-  const itemToSave = useRecoilValue(ItemToSave)
+  const itemToSave = useRecoilValue(ItemToSave);
+  const [list, setListItems] = useRecoilState(listItems)
   const deleteItem = () => {
 
   }
 
   const addToList = () => {
-
+    setListItems([...list, itemToSave.name])
+    setActiveSideBar('viewItems')
   }
   return (
     <div className='h-full font-quicksand  w-[25.1%] bg-white  lg:flex hidden items-center flex-col'>

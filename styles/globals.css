@@ -95,5 +95,8 @@
    .form-input{
       @apply border-2 w-full bg-inherit  border-[#BDBDBD] rounded-xl py-2 focus:outline-none focus:border-primary px-3 placeholder:text-[#BDBDBD] text-gray-600
    }
+   .formError{
+      @apply text-red-500 font-bold text-sm pt-1;
+   }
 
 }
