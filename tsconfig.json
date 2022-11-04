@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/statistics/SummaryChart.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/statistics/SummaryChart.tsx"],
   "exclude": ["node_modules"]
 }

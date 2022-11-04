@@ -10,7 +10,7 @@ interface ItemProps {
 }
 
 let CookieItem = ({ name, qty }: ItemProps) => {
-  return (
+  return ( 
     <div className='flex bg-white items-center space-x-20 shadow-sm rounded-xl py-3 px-4 '>
       <p className='text-center text-lg font-bold'>{name}</p>
       <p className='text-center text-[13px] font-bold text-[#F9A109]'>{qty} pcs</p>

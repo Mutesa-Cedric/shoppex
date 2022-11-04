@@ -2,9 +2,8 @@ import React, { useEffect } from 'react'
 import { Line } from "react-chartjs-2";
 
 import 'chart.js/auto';
-import Chart from 'chart.js/auto';
 
-const data   = {
+const data: any = {
   labels: ["January", "February", "March", "April", "May", "June", "July"],
   datasets: [
     {
@@ -37,13 +36,13 @@ const options = {
       display: false
     },
   },
-  responsive:false,
-  borderDash:[10,2]
+  responsive: false,
+  borderDash: [10, 2]
 }
 function SummaryChart() {
   return (
     <div className=' flex items-center mt-9'>
-      <Line data={data} options={options } width={870} height={300} className="h-[10%]" />
+      <Line data={data} options={options} width={870} height={300} className="h-[10%]" />
     </div>
   )
 }
