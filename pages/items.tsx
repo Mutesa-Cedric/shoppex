@@ -4,24 +4,28 @@ import { currentPageState, showItemNav } from "../atoms/CurrentPageState";
 import { AiOutlineSearch } from 'react-icons/ai'
 import Category from '../components/Item/Category'
 import { useEffect, useState } from 'react';
+import useAuth from '../hooks/useAuth';
 
 const Items = () => {
-    const [show,setShow] = useRecoilState(showItemNav);
+    const [show, setShow] = useRecoilState(showItemNav);
     const [size, setSize] = useState(1200);
+    const { user } = useAuth();
+
     useEffect(() => {
+        console.log(user);
         setSize(window.innerWidth);
-      window.addEventListener('resize', () => {
-        setSize(window.innerWidth)
-      });
-      return () => {
-        window.removeEventListener('resize', () => { })
-      }
+        window.addEventListener('resize', () => {
+            setSize(window.innerWidth)
+        });
+        return () => {
+            window.removeEventListener('resize', () => { })
+        }
     }, [])
     const [currentPage, setCurrentPage] = useRecoilState(currentPageState);
     setCurrentPage('items');
     return (
         <div className="bg-[#FAFAFE] md:overflow-y-hidden relative ml-20 lg:w-[72%] w-full flex items-center md:flex-row flex-col justify-between"
-        style={{display:`${show&&size<768?"none":''}`}}>
+            style={{ display: `${show && size < 768 ? "none" : ''}` }}>
             <Head>
                 <title>Shoppex - your items</title>
                 <link rel="icon" href="/images/logo.svg" />

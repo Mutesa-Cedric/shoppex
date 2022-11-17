@@ -1,18 +1,16 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next dev -p 4000",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
-    "@apollo/client": "^3.6.9",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
     "@mui/material": "^5.8.4",
     "chart.js": "^3.8.0",
     "firebase": "^9.8.3",
-    "graphql": "^16.5.0",
     "next": "latest",
     "react": "18.1.0",
     "react-chartjs-2": "^4.2.0",
