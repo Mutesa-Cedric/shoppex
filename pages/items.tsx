@@ -1,18 +1,21 @@
-import Head from 'next/head'
+import Head from 'next/head';
+import useSWR from 'swr';
 import { useRecoilState, useRecoilValue } from "recoil";
 import { currentPageState, showItemNav } from "../atoms/CurrentPageState";
 import { AiOutlineSearch } from 'react-icons/ai'
 import Category from '../components/Item/Category'
 import { useEffect, useState } from 'react';
 import useAuth from '../hooks/useAuth';
+import fetcher from '../utils/fetcher';
 
 const Items = () => {
-    const [show, setShow] = useRecoilState(showItemNav);
+    const show = useRecoilValue(showItemNav);
     const [size, setSize] = useState(1200);
+    const [currentPage, setCurrentPage] = useRecoilState(currentPageState);
     const { user } = useAuth();
 
     useEffect(() => {
-        console.log(user);
+        setCurrentPage('items');
         setSize(window.innerWidth);
         window.addEventListener('resize', () => {
             setSize(window.innerWidth)
@@ -20,9 +23,11 @@ const Items = () => {
         return () => {
             window.removeEventListener('resize', () => { })
         }
-    }, [])
-    const [currentPage, setCurrentPage] = useRecoilState(currentPageState);
-    setCurrentPage('items');
+    }, []);
+
+    const { data, error } = useSWR('/api/items', fetcher);
+    console.log(data);
+    
     return (
         <div className="bg-[#FAFAFE] md:overflow-y-hidden relative ml-20 lg:w-[72%] w-full flex items-center md:flex-row flex-col justify-between"
             style={{ display: `${show && size < 768 ? "none" : ''}` }}>
