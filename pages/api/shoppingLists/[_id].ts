@@ -9,7 +9,7 @@ export default async function handler(
     const { _id } = req.query;
     switch (req.method) {
         case "GET":
-            const shoppinglist = await prisma.shoppinglist.findUnique({
+            const shoppinglist = await prisma.shopping_list.findUnique({
                 where: {
                     id: Number(_id)
                 }
@@ -17,7 +17,7 @@ export default async function handler(
             res.status(200).json(shoppinglist);
             break;
         case "PUT":
-            const updatedShoppinglist = await prisma.shoppinglist.update({
+            const updatedShoppinglist = await prisma.shopping_list.update({
                 where: {
                     id: Number(_id)
                 },

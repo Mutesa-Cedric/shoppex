@@ -9,7 +9,7 @@ export default async function handler(
 ) {
     switch (req.method) {
         case "GET":
-            const categories = await prisma.category.findMany({user_id: req.body.user_id});
+            const categories = await prisma.category.findMany({where: {user_id: req.body.user_id}});
             res.status(200).json(categories);
             break;
         case "POST":

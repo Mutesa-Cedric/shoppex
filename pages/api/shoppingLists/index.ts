@@ -9,12 +9,12 @@ export default async function handler(
 ) {
     switch (req.method) {
         case "GET":
-            const shoppinglists = await prisma.shoppinglist.findMany({ user_id: req.body.user_id });
+            const shoppinglists = await prisma.shopping_list.findMany({ where: { user_id: req.body.user_id } });
             res.status(200).json(shoppinglists);
             break;
 
         case "POST":
-            const shoppinglist = await prisma.shoppinglist.create({
+            const shoppinglist = await prisma.shopping_list.create({
                 data: {
                     name: req.body.name,
                     user_id: req.body.user_id,

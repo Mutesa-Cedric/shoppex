@@ -6,7 +6,8 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 type Data = {
-  name: string
+  items?: any;
+  item?: any;
 }
 
 export default async function handler(
@@ -24,11 +25,11 @@ export default async function handler(
           user_id: req.body.user_id,
         },
       });
-      res.status(200).json(item);
+      res.status(200).json({ item });
       break;
     case "GET":
-      const items = await prisma.item.findMany();
-      res.status(200).json(items);
+      const items = await prisma.item.findMany({ where: { user_id: req.body.user_id } });
+      res.status(200).json({ items });
       break;
   }
 }
