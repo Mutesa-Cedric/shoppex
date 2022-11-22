@@ -1,4 +1,4 @@
-// imports
+
 import {
     createUserWithEmailAndPassword,
     onAuthStateChanged,
@@ -7,7 +7,6 @@ import {
     User,
     signInWithPopup,
 } from 'firebase/auth'
-import { async } from '@firebase/util'
 import { useRouter } from 'next/router'
 import { createContext, useContext, useEffect, useMemo, useState } from 'react'
 import { auth, provider } from '../firebase'

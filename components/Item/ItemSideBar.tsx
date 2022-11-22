@@ -2,8 +2,8 @@ import Image from 'next/image'
 import React from 'react'
 import { MdCancel, MdModeEditOutline } from "react-icons/md"
 import { useRecoilState, useRecoilValue } from 'recoil'
-import { currentSideBar, showItemNav } from '../../atoms/CurrentPageState';
-import { listItems } from '../../atoms/ItemState';
+import { currentSideBar, showItemNav } from '../../state/CurrentPageState';
+import { listItems } from '../../state/ItemState';
 import NoItem from './NoItem';
 import ShoppingList from '../UI/ShoppingList';
 
@@ -43,7 +43,7 @@ function ItemSideBar() {
           </div>
         </div>
         {
-          items.length === 0 ? <NoItem /> : <ShoppingList />
+          items.length === 0 ? <NoItem /> : <ShoppingList  />
         }
       </div>
       {

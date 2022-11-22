@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { AiOutlineMenu, AiOutlineReload, AiOutlineShoppingCart } from 'react-icons/ai'
 import { TbDeviceAnalytics } from "react-icons/tb"
 import { useRecoilState } from 'recoil';
-import { currentPageState, showItemNav } from '../../atoms/CurrentPageState';
+import { currentPageState, showItemNav } from '../../state/CurrentPageState';
 import useAuth from '../../hooks/useAuth';
 
 function SideNav() {

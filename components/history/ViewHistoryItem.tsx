@@ -1,7 +1,7 @@
 import React from 'react'
 import { BiArrowBack, BiCalendar } from 'react-icons/bi'
 import { useRecoilState, useRecoilValue } from 'recoil'
-import { ShowHistoryItem } from '../../atoms/ItemState'
+import { ShowHistoryItem } from '../../state/ItemState'
 import { Item } from '../../typings'
 
 interface ItemProps {

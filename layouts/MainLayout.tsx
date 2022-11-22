@@ -1,6 +1,6 @@
 import React from 'react'
 import { useRecoilValue } from 'recoil';
-import { currentPageState, currentSideBar } from '../atoms/CurrentPageState';
+import { currentSideBar } from '../state/CurrentPageState';
 import useAuth from '../hooks/useAuth';
 import AddItem from '../components/Item/AddItem';
 import ItemPreview from '../components/Item/ItemPreview';

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import MuiModal from '@mui/material/Modal'
-import { showConfirmPopup } from '../../atoms/PopupState'
+import { showConfirmPopup } from '../../state/PopupState'
 import { MdCancel } from 'react-icons/md';
 import { ImCancelCircle } from 'react-icons/im';
 function ConfirmModal() {

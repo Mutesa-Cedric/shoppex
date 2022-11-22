@@ -2,7 +2,7 @@ import Image from 'next/image';
 import React from 'react'
 import { AiFillBackward, AiFillStepBackward, AiOutlineArrowLeft, AiFillCamera } from 'react-icons/ai'
 import { useRecoilState } from 'recoil';
-import { profileMode } from '../../atoms/CurrentPageState';
+import { profileMode } from '../../state/CurrentPageState';
 import useAuth from '../../hooks/useAuth';
 
 function EditProfile() {

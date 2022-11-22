@@ -1,7 +1,7 @@
 import React from 'react'
 import { MdModeEditOutline } from 'react-icons/md';
 import { useRecoilState } from 'recoil';
-import { listItems } from '../../atoms/ItemState';
+import { listItems } from '../../state/ItemState';
 
 interface ItemProps {
     name: string,
@@ -28,7 +28,7 @@ function ShoppingList() {
                     <h1 className="font-medium text-[#828282] leading-[17.4px] mb-4 mt-6">Fruit and vegetables</h1>
                     {
                         list.map(item => (
-                            <Item name={item} quantity={1} />
+                            <Item key={item}  name={item} quantity={1} />
                         ))
                     }
                 </div>

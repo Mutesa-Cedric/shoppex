@@ -2,7 +2,7 @@ import React from 'react'
 import { BiCalendar } from "react-icons/bi"
 import { IoIosArrowForward } from "react-icons/io"
 import { useRecoilState } from 'recoil'
-import { ShowHistoryItem } from '../../atoms/ItemState'
+import { ShowHistoryItem } from '../../state/ItemState'
 interface Props {
   name: string
   date: string

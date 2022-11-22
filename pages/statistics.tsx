@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import React, { useEffect, useState } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { currentPageState, showItemNav } from '../atoms/CurrentPageState';
+import { currentPageState, showItemNav } from '../state/CurrentPageState';
 import ConfirmModal from '../components/UI/ConfirmModal';
 import SummaryChart from '../components/statistics/SummaryChart';
 import TopCategory from '../components/statistics/TopCategory';

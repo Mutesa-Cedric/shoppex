@@ -1,24 +1,38 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useRecoilState } from 'recoil'
-import { currentSideBar } from '../../atoms/CurrentPageState'
+import { currentSideBar } from '../../state/CurrentPageState'
 import { useForm, SubmitHandler } from "react-hook-form";
+import axios from "../../axios.config";
+import useAuth from "../../hooks/useAuth";
+import useSwr from "swr";
+import fetcher from "../../utils/fetcher";
 
 type Inputs = {
   name: string,
-  note: string,
-  image: string,
+  note?: string,
+  image?: string,
   category: string
 };
 
 function AddItem() {
-  const [activeSideBar, setActiveSideBar] = useRecoilState(currentSideBar);
-
+  const [_activeSideBar, setActiveSideBar] = useRecoilState(currentSideBar);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const { user } = useAuth();
+  console.log(user);
   const { register, handleSubmit, watch, formState: { errors } } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = data => {
-    console.log(data)
+  const onSubmit: SubmitHandler<Inputs> = async data => {
+    await axios.post('/items', {
+      name: data.name,
+      note: data.note,
+      image: data.image,
+      category_id: selectedCategory,
+      user_id: user?.uid
+    });
     setActiveSideBar("previewItem")
   };
-
+  const { data, error } = useSwr('/categories', fetcher.get);
+  console.log("categories : ", data);
+  
   return (
     <div className='h-full font-quicksand  w-[25.1%] bg-[#FAFAFE] shadow-md lg:flex hidden items-center flex-col'>
       <div className='h-full flex flex-col w-full items-center justify-between pt-6 px-10 pb-12'>

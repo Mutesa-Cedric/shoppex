@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import React, { useEffect, useState } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { currentPageState, showItemNav } from '../atoms/CurrentPageState';
-import { ShowHistoryItem } from '../atoms/ItemState';
+import { currentPageState, showItemNav } from '../state/CurrentPageState';
+import { ShowHistoryItem } from '../state/ItemState';
 import HistoryItem from '../components/history/HistoryItem';
 import ViewHistoryItem from '../components/history/ViewHistoryItem';
 import { testItem } from '../testItem';

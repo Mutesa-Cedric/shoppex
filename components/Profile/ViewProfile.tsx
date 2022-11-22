@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React, { useState } from 'react'
 import { useRecoilState } from 'recoil';
-import { profileMode } from '../../atoms/CurrentPageState';
+import { profileMode } from '../../state/CurrentPageState';
 import useAuth from '../../hooks/useAuth';
 
 function ViewProfile() {

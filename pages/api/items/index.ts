@@ -16,6 +16,7 @@ export default async function handler(
 ) {
   switch (req.method) {
     case "POST":
+      console.log(req.body);
       const item = await prisma.item.create({
         data: {
           name: req.body.name,

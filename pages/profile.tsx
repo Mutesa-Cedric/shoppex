@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react'
 import { useRecoilState } from 'recoil';
-import { currentPageState, profileMode, showItemNav } from '../atoms/CurrentPageState';
+import { currentPageState, profileMode, showItemNav } from '../state/CurrentPageState';
 import EditProfile from '../components/Profile/EditProfile';
 import ViewProfile from '../components/Profile/ViewProfile';
 import useAuth from '../hooks/useAuth'
