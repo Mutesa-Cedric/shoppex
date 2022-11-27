@@ -8,7 +8,6 @@ import Category from '../components/Item/Category'
 import { useEffect, useState } from 'react';
 import useAuth from '../hooks/useAuth';
 import fetcher from '../utils/fetcher';
-import { Item } from '../@types/types';
 
 // export async function getServerSideProps() {
 //     const data = await fetcher.get('/items');
