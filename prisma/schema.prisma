@@ -3,9 +3,38 @@
 
 generator client {
   provider = "prisma-client-js"
+  previewFeatures = ["referentialIntegrity"]
+}
+datasource db {
+  provider = "mysql"
+  url = env("DATABASE_URL")
+  referentialIntegrity = "prisma"
 }
 
-datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+model Item {
+  id             Int           @id @default(autoincrement())
+  createdAt      DateTime      @default(now())
+  name           String
+  image          String?
+  user_id        String
+  Category       Category?     @relation(fields: [categoryId], references: [id])
+  categoryId     Int?
+  ShoppingList   ShoppingList? @relation(fields: [shoppingListId], references: [id])
+  shoppingListId Int?
+}
+
+model Category {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  name      String
+  items     Item[]
+  user_id   String
+}
+
+model ShoppingList {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  name      String
+  user_id   String
+  items     Item[]
 }
