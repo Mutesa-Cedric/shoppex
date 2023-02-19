@@ -15,7 +15,7 @@ function HomeAds() {
   }, [])
 
   return (
-    <div className='flex justify-between md:flex-row flex-col items-center md:w-full w-screen lg:px-[170px] md:px-[80px] px-4  md:space-y-0 space-y-4 py-12'>
+    <div id='services' className='flex justify-between md:flex-row flex-col items-center md:w-full w-screen lg:px-[170px] md:px-[80px] px-4  md:space-y-0 space-y-4 py-12'>
       <div className="flex flex-col md:items-start items-center md:space-y-5 space-y-2 md:w-2/4">
         <h1 className="font-bold md:text-4xl text-2xl md:text-start text-center max-w-lg">We provide the best interface for shopping list management.</h1>
         <p className="text-black/75 font-bold pb-6 max-w-lg md:text-start text-center">Shoppex  is here to give you a clear and simple way to help you manage all you shopping items in case you&apos;re going to the market. Don&apos;t face pain when shopping...</p>

@@ -9,7 +9,14 @@ import {
 } from 'firebase/auth'
 import { useRouter } from 'next/router'
 import { createContext, useContext, useEffect, useMemo, useState } from 'react'
-import { auth, provider } from '../firebase'
+import { auth, provider } from '../firebase';
+
+const protectedRoutes = [
+    '/items',
+    '/history',
+    '/profile',
+    '/statistics',
+]
 
 interface IAuth {
     user: User | null
@@ -43,6 +50,7 @@ interface AuthProviderProps {
 
 //this is my custom hook that will be used to authenticate the user
 export function AuthProvider({ children }: AuthProviderProps) {
+    const router = useRouter();
     const [loading, setLoading] = useState(false)
     const [user, setUser] = useState<User | null>(null);
     const [error, setError] = useState<string | null>(null);
@@ -57,7 +65,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
                     router.push('/items')
                     setUser(user)
                     setLoading(false)
-                } else {
+                } else if (protectedRoutes.includes(router.pathname)) {
                     // Not logged in...
                     setUser(null)
                     setLoading(true)
@@ -67,12 +75,11 @@ export function AuthProvider({ children }: AuthProviderProps) {
                     setInitialLoading(false)
                 }, 800)
             }),
-        [auth]
+        [auth, router.pathname]
     )
     // User is authenticated
 
 
-    const router = useRouter();
     // signup function
     const signUp = async (email: string, password: string) => {
         setLoading(true);

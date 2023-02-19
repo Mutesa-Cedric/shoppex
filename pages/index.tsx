@@ -34,7 +34,7 @@ const Home = () => {
                     <HomeBanner />
                     <HomeAds />
                     {/* reviews */}
-                    <div className='flex flex-col items-center lg:px-[130px] md:px-[20px] px-4'>
+                    <div id='testimonials' className='flex flex-col items-center lg:px-[130px] md:px-[20px] px-4'>
                         <div className='flex items-center justify-center w-full mb-10'>
                             <div className='w-1/5 border-b-2'></div>
                             <span className="px-12 font-bold text-xl">Reviews</span>

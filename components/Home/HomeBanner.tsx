@@ -7,13 +7,15 @@ function HomeBanner() {
   return (
     <div className='md:w-full w-screen h-auto flex md:flex-row flex-col justify-between md:space-y-0 space-y-20 lg:px-[170px] md:px-[80px] px-4'>
       <div className='flex flex-col md:space-y-20 space-y-8 relative'>
-        <div className="md:space-y-10 space-y-12 md:block flex flex-col items-center">
+        <div className="md:space-y-10 z-50 space-y-12 md:block flex flex-col items-center">
           <div className='md:space-y-3 space-y-6'>
             <h1 className='lg:text-[52px] md:text-[40px] md:text-start text-center text-3xl md:leading-[60px] font-bold max-w-xl'>Take your shopping list wherever you go.</h1>
             <p className='text-lg font-bold md:text-start text-center text-gray-500'>Shoppex is the best option for making shopping plan in easy steps.</p>
           </div>
-          <button className='text-white   bg-[#FF8A00] hover:bg-primary rounded-[64px] py-[9px] uppercase px-10 ' onClick={() => router.push('/welcome?mode=signup')}>
-            <span >Make Your List</span>
+          <button
+            className='text-white  bg-[#FF8A00] hover:bg-primary rounded-[64px] py-[9px] uppercase px-10 '
+            onClick={() => router.push("/welcome?mode=signup")}>
+            <span>Make Your List</span>
           </button>
         </div>
         <div className="flex space-x-12 items-center md:justify-start justify-center md:ml-12">
@@ -30,9 +32,9 @@ function HomeBanner() {
             <p className="text-black/75 font-bold text-sm">Reviews</p>
           </div>
         </div>
-        <div className="absolute left-0 -bottom-12 h-[450px] w-[340px]"
+        <div
+          className="absolute left-0  -bottom-12 h-[450px] w-[340px]"
           style={{ background: 'linear-gradient(92.3deg, rgba(255, 138, 0, 0.25) -4.35%, rgba(217, 217, 217, 0) 97.96%)', filter: 'blur(103px)' }}>
-
         </div>
       </div>
 
